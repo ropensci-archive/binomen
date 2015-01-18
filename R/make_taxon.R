@@ -6,12 +6,12 @@
 #' @param genus Genus name, e.g., Homo (in Homo sapiens)
 #' @param epithet Specific epithet, e.g., sapiens (in Homo sapiens)
 #' @param authority Taxonomic authority
-#' @examples
+#' @param ... Further args.
+#' @examples \dontrun{
 #' (out <- make_taxon(genus="Poa", epithet="annua", authority="L."))
 #' (out <- make_taxon(genus="Poa", epithet="annua", authority="L.",
 #'                    family='Poaceae', clazz='Poales', kingdom='Plantae', variety='annua'))
 #' (out <- make_taxon(genus="Poa"))
-#' make_taxon(epithet="annua") # errors
 #' out@@binomial
 #' out@@binomial@@canonical
 #' out@@binomial@@species
@@ -22,8 +22,9 @@
 #' out['family','kingdom'] # get a range of ranks
 #' out['variety','genus'] # get a range of ranks
 #' gethier(out) # get hierarchy as data.frame
+#' }
 
-make_taxon <- function(genus="none", epithet="none", authority="none"){
+make_taxon <- function(genus="none", epithet="none", authority="none", ...){
   if(genus=='none') stop("You must supply at least genus")
   res <- new("binomial",
              genus=genus,

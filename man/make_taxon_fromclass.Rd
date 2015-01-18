@@ -15,10 +15,12 @@ make_taxon_fromclass(data, authority = "none")
 Make taxon from class
 }
 \examples{
+\dontrun{
 df <- data.frame(rank=c('family','tribe','subtribe','genus','subgenus','species'),
                  name=c('Helianthi','Helianthi','Helianthi','Poa','Festuci','Poa annua'),
                  id=c(1,2,3,4,5,6),
                  stringsAsFactors = FALSE)
 apply(df, 1, make_taxon_fromclass)
+}
 }
 

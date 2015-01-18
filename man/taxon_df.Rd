@@ -13,6 +13,7 @@ taxon_df(data)
 Taxon data.frame
 }
 \examples{
+\dontrun{
 # subset data.frame using taxonomy
 df <- data.frame(family=c('Asteraceae','Asteraceae','Asteraceae','Poaceae','Poaceae','Poaceae'),
                  tribe=c('Helianthi','Helianthi','Helianthi','Poaeae','Festuci','Poaeae'),
@@ -22,5 +23,6 @@ df2 <- taxon_df(df)
 df2['family','Asteraceae']
 df2['genus','Madia']
 df2['tribe','Helianthi']
+}
 }
 

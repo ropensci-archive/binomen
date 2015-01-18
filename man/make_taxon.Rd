@@ -4,7 +4,7 @@
 \alias{make_taxon}
 \title{Make taxon from class}
 \usage{
-make_taxon(genus = "none", epithet = "none", authority = "none")
+make_taxon(genus = "none", epithet = "none", authority = "none", ...)
 }
 \arguments{
 \item{genus}{Genus name, e.g., Homo (in Homo sapiens)}
@@ -12,11 +12,14 @@ make_taxon(genus = "none", epithet = "none", authority = "none")
 \item{epithet}{Specific epithet, e.g., sapiens (in Homo sapiens)}
 
 \item{authority}{Taxonomic authority}
+
+\item{...}{Further args.}
 }
 \description{
 Make taxon from class
 }
 \examples{
+\dontrun{
 (out <- make_taxon(genus="Poa", epithet="annua", authority="L."))
 (out <- make_taxon(genus="Poa", epithet="annua", authority="L.",
                    family='Poaceae', clazz='Poales', kingdom='Plantae', variety='annua'))
@@ -32,5 +35,6 @@ out[['family']] # get a single rank
 out['family','kingdom'] # get a range of ranks
 out['variety','genus'] # get a range of ranks
 gethier(out) # get hierarchy as data.frame
+}
 }
 
