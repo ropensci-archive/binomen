@@ -1,53 +1,18 @@
-Package: taxize
-Title: Taxonomic Information from Around the Web
-Description: Taxonomic information from around the web. This package
-    interacts with a suite of web APIs for taxonomic tasks, such
-    as verifying species names, getting taxonomic hierarchies,
-    and verifying name spelling.
-Version: 0.5.2.99
-Date: 2015-01-05
+Package: taxon
+Title: Taxonomic class specification
+Description: Taxonomic class specification
+Version: 0.0.1.99
+Date: 2015-01-18
 License: MIT + file LICENSE
-URL: https://github.com/ropensci/taxize
-BugReports: https://github.com/ropensci/taxize/issues
-Authors@R: c(person("Scott", "Chamberlain", role = c("aut", "cre"),
-    email = "myrmecocystus@gmail.com"),
-    person("Eduard", "Szoecs", role = "aut",
-    email = "eduardszoecs@gmail.com"),
-    person("Zachary", "Foster", role = "aut",
-    email = "zacharyfoster1989@gmail.com"),
-    person("Carl", "Boettiger", role = "aut",
-    email = "cboettig@gmail.com"),
-    person("Karthik", "Ram", role = "aut",
-    email = "karthik@ropensci.org"),
-    person("Ignasi", "Bartomeus", role = "aut",
-    email = "nacho.bartomeus@gmail.com"),
-    person("John", "Baumgartner", role = "aut",
-    email = "johnbb@student.unimelb.edu.au"))
-LazyLoad: yes
+URL: https://github.com/ropensci/taxon
+BugReports: https://github.com/ropensci/taxon/issues
+Authors@R: person("Scott", "Chamberlain", role = c("aut", "cre"),
+    email = "myrmecocystus@gmail.com")
 LazyData: yes
-VignetteBuilder: knitr
 Roxygen: list(wrap = FALSE)
 Depends:
-    R(>= 2.10.0)
-Imports:
-    XML,
-    httr (>= 0.2),
-    RCurl (>= 1.6),
-    curl,
-    stringr,
-    plyr,
-    dplyr,
-    jsonlite,
-    foreach,
-    ape,
-    Taxonstand,
-    reshape2,
-    data.table,
-    vegan,
-    bold,
-    DBI,
-    RPostgreSQL
+    methods
 Suggests:
-    testthat,
     roxygen2,
-    knitr
+    knitr,
+    taxize
