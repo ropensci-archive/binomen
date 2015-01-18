@@ -1,9 +1,9 @@
-taxon
+binomia
 =======
 
 
 
-`taxon` provides a taxonomic class for defining a taxon and multiple taxa.
+`binomia` provides a taxonomic class for defining a taxon and multiple taxa.
 
 It is meant to work with [taxize](https://github.com/ropensci/taxize), where you can get data on taxonomic names.
 
@@ -13,13 +13,12 @@ It is meant to work with [taxize](https://github.com/ropensci/taxize), where you
 
 ```r
 install.packages("devtools")
-devtools::install_github("ropensci/taxon")
+devtools::install_github("ropensci/binomia")
 ```
 
 
 ```r
-library('taxon')
-#> Error in library("taxon"): there is no package called 'taxon'
+library('binomia')
 ```
 
 ## xxx
@@ -34,8 +33,8 @@ xxx
 
 ## Meta
 
-* Please [report any issues or bugs](https://github.com/ropensci/taxon/issues).
+* Please [report any issues or bugs](https://github.com/ropensci/binomia/issues).
 * License: MIT
-* Get citation information for `taxon` in R doing `citation(package = 'taxon')`
+* Get citation information for `binomia` in R doing `citation(package = 'binomia')`
 
 [![ropensci](http://ropensci.org/public_images/github_footer.png)](http://ropensci.org)
