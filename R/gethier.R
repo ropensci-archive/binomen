@@ -4,11 +4,11 @@
 #'
 #' @param data An object of class taxon
 #' @examples \dontrun{
-#' (out <- make_taxon(genus="Poa", epithet="annua", authority="L.",
-#'                    family='Poaceae', clazz='Poales', kingdom='Plantae', variety='annua'))
-#' gethier(out) # get hierarchy as data.frame
+#' (out <- taxon(genus="Poa", epithet="annua", authority="L.",
+#'              family='Poaceae', clazz='Poales', kingdom='Plantae', variety='annua'))
+#' # get hierarchy as data.frame
+#' gethier(out)
 #' }
-
 setGeneric("gethier", function(x) standardGeneric("gethier"))
 
 #' @rdname gethier

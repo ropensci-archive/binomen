@@ -1,11 +1,11 @@
-Package: taxon
-Title: Taxonomic class specification
-Description: Taxonomic class specification
+Package: binomia
+Title: Taxonomic class specification and parsing methods
+Description: Taxonomic class specification and parsing methods
 Version: 0.0.1.99
 Date: 2015-01-18
 License: MIT + file LICENSE
-URL: https://github.com/ropensci/taxon
-BugReports: https://github.com/ropensci/taxon/issues
+URL: https://github.com/ropensci/binomia
+BugReports: https://github.com/ropensci/binomia/issues
 Authors@R: person("Scott", "Chamberlain", role = c("aut", "cre"),
     email = "myrmecocystus@gmail.com")
 LazyData: yes
