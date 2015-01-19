@@ -4,13 +4,13 @@
 \alias{taxon_df}
 \title{Taxon data.frame}
 \usage{
-taxon_df(data)
+taxon_df(x)
 }
 \arguments{
-\item{data}{A data.frame of taxa}
+\item{x}{A data.frame of taxa}
 }
 \description{
-Taxon data.frame
+BEWARE: doesn't work yet
 }
 \examples{
 \dontrun{
@@ -20,9 +20,9 @@ df <- data.frame(family=c('Asteraceae','Asteraceae','Asteraceae','Poaceae','Poac
                  genus=c('Helianthus','Helianthus','Madia','Poa','Festuca','Holodiscus'),
                  stringsAsFactors = FALSE)
 df2 <- taxon_df(df)
-df2['family','Asteraceae']
-df2['genus','Madia']
-df2['tribe','Helianthi']
+df2 \%>\% select(family, Asteraceae)
+df2 \%>\% select(genus, Madia)
+df2 \%>\% select(tribe, Helianthi)
 }
 }
 

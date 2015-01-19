@@ -1,8 +1,8 @@
 Package: binomia
 Title: Taxonomic class specification and parsing methods
 Description: Taxonomic class specification and parsing methods
-Version: 0.0.1.99
-Date: 2015-01-18
+Version: 0.0.2.99
+Date: 2015-01-19
 License: MIT + file LICENSE
 URL: https://github.com/ropensci/binomia
 BugReports: https://github.com/ropensci/binomia/issues
@@ -11,7 +11,8 @@ Authors@R: person("Scott", "Chamberlain", role = c("aut", "cre"),
 LazyData: yes
 Roxygen: list(wrap = FALSE)
 Depends:
-    methods
+    magrittr,
+    jsonlite
 Suggests:
     roxygen2,
     knitr,
