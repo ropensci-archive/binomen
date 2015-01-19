@@ -1,4 +1,6 @@
-#' Convert to JSON-LD
+#' Convert to JSON
+#'
+#' NOT WORKING YET
 #'
 #' @export
 #' @importFrom jsonlite toJSON

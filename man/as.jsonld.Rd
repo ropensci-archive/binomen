@@ -2,7 +2,7 @@
 % Please edit documentation in R/tojson.R
 \name{as.jsonld}
 \alias{as.jsonld}
-\title{Convert to JSON-LD}
+\title{Convert to JSON}
 \usage{
 as.jsonld(input, ...)
 }
@@ -12,7 +12,7 @@ as.jsonld(input, ...)
 \item{...}{Further args passed on to \code{\link[jsonlite]{toJSON}}}
 }
 \description{
-Convert to JSON-LD
+NOT WORKING YET
 }
 \examples{
 \dontrun{
