@@ -1,9 +1,9 @@
-binomia
+binomen
 =======
 
 
 
-`binomia` provides a taxonomic class for defining a taxon and multiple taxa.
+`binomen` provides a taxonomic class for defining a taxon and multiple taxa.
 
 It is meant to work with [taxize](https://github.com/ropensci/taxize), where you can get data on taxonomic names.
 
@@ -13,12 +13,12 @@ It is meant to work with [taxize](https://github.com/ropensci/taxize), where you
 
 ```r
 install.packages("devtools")
-devtools::install_github("ropensci/binomia")
+devtools::install_github("ropensci/binomen")
 ```
 
 
 ```r
-library('binomia')
+library('binomen')
 ```
 
 ## Make a taxon
@@ -42,25 +42,20 @@ Make a taxon object
 
 Index to various parts of the object
 
-The binomial
+The binomenl
 
 
 ```r
-obj$binomial
-#> <binomial>
-#>   genus: Poa
-#>   epithet: annua
-#>   canonical: Poa annua
-#>   species: Poa annua L.
-#>   authority: L.
+obj$binomenl
+#> NULL
 ```
 
 The authority
 
 
 ```r
-obj$binomial$authority
-#> [1] "L."
+obj$binomenl$authority
+#> NULL
 ```
 
 The classification
@@ -195,8 +190,8 @@ df2 %>% select(genus, Poa)
 
 ## Meta
 
-* Please [report any issues or bugs](https://github.com/ropensci/binomia/issues).
+* Please [report any issues or bugs](https://github.com/ropensci/binomen/issues).
 * License: MIT
-* Get citation information for `binomia` in R doing `citation(package = 'binomia')`
+* Get citation information for `binomen` in R doing `citation(package = 'binomen')`
 
 [![ropensci](http://ropensci.org/public_images/github_footer.png)](http://ropensci.org)
