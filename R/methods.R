@@ -30,26 +30,16 @@ setClass("binomial", slots = c(genus="character", epithet="character", canonical
 #' @slot rank Taxonomic rank
 #' @slot name A name
 #' @slot id Identifier
-#' @slot source Source of name
-setClass("taxonref", slots = c(rank='character', name='character', id='numeric', source='character'),
-         prototype = prototype(rank='none', name='none', id=NaN, source='none'))
+#' @slot uri Source of name
+setClass("taxonref", slots = c(rank='character', name='character', id='numeric', uri='character'),
+         prototype = prototype(rank='none', name='none', id=NaN, uri='none'))
+setAs("character", "taxonref", function(from) new("taxonref", name=from))
 
 #' An S4 class to represent a list of taxonomic references
 #'
 #' @export
 #' @slot names Names
 setClass("ListOfTaxonRefs", slots = c(names="character"), contains="list")
-
-setAs("character", "taxonref", function(from) new("taxonref", name=from))
-
-# setMethod("combinetaxonref", "ListOfTaxonRefs", function(...){
-#   input <- list(...)
-#   assert_that(all(sapply(input, is, "ListOfTaxonRefs")))
-#
-# })
-
-# new("ListOfTaxonRefs", lapply(list(kingdom="adfa", family="adf"), as, "taxonref"))
-
 
 #' An S4 class to represent a taxonomic classification
 #'
