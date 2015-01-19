@@ -16,7 +16,7 @@ make_taxon_fromclass <- function(data, authority="none"){
   rank <- data[['rank']]
   name <- data[['name']]
   id <- as.numeric(data[['id']])
-  res <- list(new("taxonref", rank=rank, name=name, id=id))
+  res <- list(taxonref(rank=rank, name=name, id=id))
   names(res) <- rank
   res[1]
 }

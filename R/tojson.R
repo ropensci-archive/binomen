@@ -1,10 +1,13 @@
 #' Convert to JSON-LD
 #'
 #' @export
+#' @importFrom jsonlite toJSON
+#'
 #' @param input Input object
+#' @param ... Further args passed on to \code{\link[jsonlite]{toJSON}}
 #' @examples \dontrun{
-#' out <- taxon(genus="Poa", epithet="annua", authority="L.")
-#' x <- new("taxonref", rank="species", name="Homo sapiens", id=3454, uri="http://things.com")
+#' out <- make_taxon(genus="Poa", epithet="annua", authority="L.")
+#' x <- taxonref(rank="species", name="Homo sapiens", id=3454, uri="http://things.com")
 #' as.jsonld(x)
 #' }
 

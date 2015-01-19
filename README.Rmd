@@ -26,12 +26,59 @@ devtools::install_github("ropensci/binomia")
 library('binomia')
 ```
 
-## xxx
+## Make a taxon
 
-xxxx
+Make a taxon object
 
 ```{r}
-xxx
+(obj <- make_taxon(genus="Poa", epithet="annua", authority="L.",
+                   family='Poaceae', clazz='Poales', kingdom='Plantae', variety='annua'))
+```
+
+Index to various parts of the object
+
+The binomial
+
+```{r}
+obj$binomial
+```
+
+The authority
+
+```{r}
+obj$binomial$authority
+```
+
+The classification
+
+```{r}
+obj$classification
+```
+
+The family
+
+```{r}
+obj$classification$family
+```
+
+## Subset taxon objects
+
+Get a single rank
+
+```{r}
+obj %>% select(family)
+```
+
+Get a range of ranks
+
+```{r}
+obj %>% range(kingdom, family)
+```
+
+Extract classification as a `data.frame`
+
+```{r}
+gethier(obj)
 ```
 
 ## Meta

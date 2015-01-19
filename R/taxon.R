@@ -1,46 +1,46 @@
 #' Make taxon from class
 #'
 #' @export
-#' @import methods
 #'
 #' @param genus Genus name, e.g., Homo (in Homo sapiens)
 #' @param epithet Specific epithet, e.g., sapiens (in Homo sapiens)
 #' @param authority Taxonomic authority
 #' @param ... Further args.
 #' @examples \dontrun{
-#' (out <- taxon(genus="Poa", epithet="annua", authority="L."))
-#' (out <- taxon(genus="Poa", epithet="annua", authority="L.",
+#' (out <- make_taxon(genus="Poa", epithet="annua", authority="L."))
+#' (out <- make_taxon(genus="Poa", epithet="annua", authority="L.",
 #'                    family='Poaceae', clazz='Poales', kingdom='Plantae', variety='annua'))
-#' (out <- taxon(genus="Poa"))
-#' out@@binomial
-#' out@@binomial@@canonical
-#' out@@binomial@@species
-#' out@@binomial@@authority
-#' out@@classification
-#' out@@classification@@family
-#' out[['family']] # get a single rank
-#' out['family','kingdom'] # get a range of ranks
-#' out['variety','genus'] # get a range of ranks
+#' (out <- make_taxon(genus="Poa"))
+#' out$binomial
+#' out$binomial$canonical
+#' out$binomial$species
+#' out$binomial$authority
+#' out$classification
+#' out$classification$family
+#' out %>% select(family) # get a single rank
+#' out %>% range(kingdom, family) # get a range of ranks
 #' gethier(out) # get hierarchy as data.frame
 #' }
 
-taxon <- function(genus="none", epithet="none", authority="none", ...){
+make_taxon <- function(genus="none", epithet="none", authority="none", ...){
   if(genus=='none') stop("You must supply at least genus")
-  res <- new("binomial",
-             genus=genus,
+  res <- binomial(genus=genus,
              epithet=epithet,
              canonical=paste(genus,epithet,collapse=" "),
              species=paste(genus,epithet,authority,collapse=" "),
              authority=authority)
   input <- list(...)
-  hier <- new("classification",
-              genus=new("taxonref", name=genus),
-              species=new("taxonref", name=paste(genus,epithet,collapse=" ")))
   if(length(input) > 0){
     output <- list()
     for(i in seq_along(input)){
-      slot(hier, names(input)[i]) <- new("taxonref", name=input[[i]])
+      output[[names(input)[i]]] <- taxonref(rank=names(input[i]), name=input[[i]])
     }
+  } else{
+    output <- list()
   }
-  new("taxon", binomial=res, classification=hier)
+  all <- c(output, list(
+    genus=taxonref(rank = "genus", name=genus),
+    species=taxonref(rank = "species", name=paste(genus, epithet, collapse=" "))))
+  hier <- do.call(classification, all)
+  taxon(binomial=res, classification=hier)
 }
