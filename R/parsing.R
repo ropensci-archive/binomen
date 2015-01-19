@@ -6,6 +6,7 @@
 #' @param .data Input, object of class taxon
 #' @param ... Further unnamed args, see examples
 #' @examples
+#' # operating on `taxon` objects
 #' out <- make_taxon(genus="Poa", epithet="annua", authority="L.",
 #'    family='Poaceae', clazz='Poales', kingdom='Plantae', variety='annua')
 #' # get single name
@@ -17,16 +18,39 @@
 #' # get range of names
 #' out %>% range(kingdom, genus)
 #'
+#' # operating on taxonomic data.frames
+#' df <- data.frame(order=c('Asterales','Asterales','Fagales','Poales','Poales','Poales'),
+#'                  family=c('Asteraceae','Asteraceae','Fagaceae','Poaceae','Poaceae','Poaceae'),
+#'                  genus=c('Helianthus','Helianthus','Quercus','Poa','Festuca','Holodiscus'),
+#'                  stringsAsFactors = FALSE)
+#' (df2 <- taxon_df(df))
+#' df2 %>% select(order, Fagales)
+#' df2 %>% select(family, Asteraceae)
+#' df2 %>% select(genus, Poa)
+#'
 #' @examples \dontrun{
 #' out %>% range(kingdom, adfadf)
 #' }
 
 #' @export
 #' @rdname parsing
-select <- function(.data, ...){
+select <- function(.data, ...) UseMethod("select")
+
+#' @export
+#' @rdname parsing
+select.taxon <- function(.data, ...){
   tmp <- .data$classification
   name <- vars(...)
   tmp[[name]]
+}
+
+#' @export
+#' @rdname parsing
+select.taxondf <- function(.data, ...){
+  var <- vars(...)
+  if(length(var) > 2) stop("Pass in only two values", call. = FALSE)
+  check_vars(var[1], names(.data))
+  .data[ .data[var[1]] == var[2] , ]
 }
 
 #' @export

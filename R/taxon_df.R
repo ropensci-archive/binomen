@@ -18,7 +18,7 @@
 #' }
 
 taxon_df <- function(x){
-  structure(x, class=c('taxonDataFrame','data.frame'))
+  structure(x, class=c('taxondf','data.frame'))
 }
 
 # setClass("taxonDataFrame", slots = c(data = 'data.frame'))

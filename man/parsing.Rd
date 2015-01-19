@@ -5,10 +5,16 @@
 \alias{parsing}
 \alias{range}
 \alias{select}
+\alias{select.taxon}
+\alias{select.taxondf}
 \alias{uri}
 \title{Select, parse, etc. taxanomic names}
 \usage{
 select(.data, ...)
+
+\method{select}{taxon}(.data, ...)
+
+\method{select}{taxondf}(.data, ...)
 
 range(.data, ...)
 
@@ -25,6 +31,7 @@ uri(.data)
 Select, parse, etc. taxanomic names
 }
 \examples{
+# operating on `taxon` objects
 out <- make_taxon(genus="Poa", epithet="annua", authority="L.",
    family='Poaceae', clazz='Poales', kingdom='Plantae', variety='annua')
 # get single name
@@ -35,5 +42,15 @@ out \%>\% select(species) \%>\% name()
 out \%>\% select(species) \%>\% uri()
 # get range of names
 out \%>\% range(kingdom, genus)
+
+# operating on taxonomic data.frames
+df <- data.frame(order=c('Asterales','Asterales','Fagales','Poales','Poales','Poales'),
+                 family=c('Asteraceae','Asteraceae','Fagaceae','Poaceae','Poaceae','Poaceae'),
+                 genus=c('Helianthus','Helianthus','Quercus','Poa','Festuca','Holodiscus'),
+                 stringsAsFactors = FALSE)
+(df2 <- taxon_df(df))
+df2 \%>\% select(order, Fagales)
+df2 \%>\% select(family, Asteraceae)
+df2 \%>\% select(genus, Poa)
 }
 
