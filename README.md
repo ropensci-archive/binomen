@@ -144,6 +144,55 @@ gethier(obj)
 #> 6 variety     annua
 ```
 
+## Taxonomic data.frame's
+
+Make one
+
+
+```r
+df <- data.frame(order=c('Asterales','Asterales','Fagales','Poales','Poales','Poales'),
+                family=c('Asteraceae','Asteraceae','Fagaceae','Poaceae','Poaceae','Poaceae'),
+                genus=c('Helianthus','Helianthus','Quercus','Poa','Festuca','Holodiscus'),
+                stringsAsFactors = FALSE)
+(df2 <- taxon_df(df))
+#>       order     family      genus
+#> 1 Asterales Asteraceae Helianthus
+#> 2 Asterales Asteraceae Helianthus
+#> 3   Fagales   Fagaceae    Quercus
+#> 4    Poales    Poaceae        Poa
+#> 5    Poales    Poaceae    Festuca
+#> 6    Poales    Poaceae Holodiscus
+```
+
+Parse - get rank order matching _Fagales_
+
+
+```r
+df2 %>% select(order, Fagales)
+#>     order   family   genus
+#> 3 Fagales Fagaceae Quercus
+```
+
+get rank family matching _Asteraceae_
+
+
+```r
+df2 %>% select(family, Asteraceae)
+#>       order     family      genus
+#> 1 Asterales Asteraceae Helianthus
+#> 2 Asterales Asteraceae Helianthus
+```
+
+get rank genus matching _Poa_
+
+
+```r
+df2 %>% select(genus, Poa)
+#>    order  family genus
+#> 4 Poales Poaceae   Poa
+```
+
+
 ## Meta
 
 * Please [report any issues or bugs](https://github.com/ropensci/binomia/issues).

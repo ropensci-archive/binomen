@@ -81,6 +81,37 @@ Extract classification as a `data.frame`
 gethier(obj)
 ```
 
+## Taxonomic data.frame's
+
+Make one
+
+```{r}
+df <- data.frame(order=c('Asterales','Asterales','Fagales','Poales','Poales','Poales'),
+                family=c('Asteraceae','Asteraceae','Fagaceae','Poaceae','Poaceae','Poaceae'),
+                genus=c('Helianthus','Helianthus','Quercus','Poa','Festuca','Holodiscus'),
+                stringsAsFactors = FALSE)
+(df2 <- taxon_df(df))
+```
+
+Parse - get rank order matching _Fagales_
+
+```{r}
+df2 %>% select(order, Fagales)
+```
+
+get rank family matching _Asteraceae_
+
+```{r}
+df2 %>% select(family, Asteraceae)
+```
+
+get rank genus matching _Poa_
+
+```{r}
+df2 %>% select(genus, Poa)
+```
+
+
 ## Meta
 
 * Please [report any issues or bugs](https://github.com/ropensci/binomia/issues).
