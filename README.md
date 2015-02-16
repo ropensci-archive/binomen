@@ -3,6 +3,8 @@ binomen
 
 
 
+[![Build Status](https://api.travis-ci.org/ropensci/binomen.png)](https://travis-ci.org/ropensci/binomen)
+
 `binomen` provides a taxonomic class for defining a taxon and multiple taxa.
 
 It is meant to work with [taxize](https://github.com/ropensci/taxize), where you can get data on taxonomic names.
