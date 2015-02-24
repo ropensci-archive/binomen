@@ -3,6 +3,8 @@
 #' @export
 #' @param x A taxonomic data.frame
 #' @param ... Further args, ignored for now
+#' @return Gives a \code{taxa} object, with each individual component a row from your
+#' data.frame, and of class \code{taxon}
 #' @examples
 #' # operating on taxonomic data.frames
 #' df <- data.frame(class=c('Magnoliopsida','Magnoliopsida','Magnoliopsida',

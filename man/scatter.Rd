@@ -11,6 +11,10 @@ scatter(x, ...)
 
 \item{...}{Further args, ignored for now}
 }
+\value{
+Gives a \code{taxa} object, with each individual component a row from your
+data.frame, and of class \code{taxon}
+}
 \description{
 Scatter each taxon in a taxondf to a taxon object
 }
