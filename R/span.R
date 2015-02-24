@@ -21,18 +21,36 @@
 #' ## filter to get a range of classes
 #' df2 %>% span(order, genus)
 #' df2 %>% span(family, genus)
+#'
+#' ## from taxa object
+#' df2 %>% scatter %>% span(family, species)
 span <- function(.data, ...) {
   UseMethod("span")
 }
 
 #' @export
 span.taxon <- function(.data, ...) {
-  tmp <- .data$classification
   var <- vars(...)
-  if(length(var) > 2) stop("Pass in only two rank names", call. = FALSE)
-  check_vars(var, names(tmp))
-  matches <- sapply(var, grep, x=names(tmp))
-  tmp[fill_nums(matches)]
+  taxonparse(.data, vars)
+#   tmp <- .data$classification
+#   if(length(var) > 2) stop("Pass in only two rank names", call. = FALSE)
+#   check_vars(var, names(tmp))
+#   matches <- sapply(var, grep, x=names(tmp))
+#   tmp[fill_nums(matches)]
+}
+
+taxonparse <- function(w, vars){
+  tmp <- w$classification
+  if(length(vars) != 2) stop("Pass in only two rank names", call. = FALSE)
+  check_vars(vars, names(tmp))
+  matches <- sapply(vars, grep, x=names(tmp))
+  w$classification <- do.call("classification", tmp[fill_nums(matches)])
+  return(w)
+}
+
+#' @export
+span.taxa <- function(.data, ...) {
+  lapply(.data, span, ...)
 }
 
 #' @export

@@ -32,5 +32,8 @@ df <- data.frame(class=c('Magnoliopsida','Magnoliopsida','Magnoliopsida',
 ## filter to get a range of classes
 df2 \%>\% span(order, genus)
 df2 \%>\% span(family, genus)
+
+## from taxa object
+df2 \%>\% scatter \%>\% span(family, species)
 }
 

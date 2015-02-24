@@ -24,9 +24,9 @@ scatter <- function(x, ...) {
 #' @export
 scatter.taxondf <- function(x, ...) {
   x <- class2clazz(x)
-  unname(apply(x, 1, function(y){
+  taxa(unname(apply(x, 1, function(y){
     do.call("make_taxon", as.list(y))
-  }))
+  })))
 }
 
 class2clazz <- function(x){
