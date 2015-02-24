@@ -2,7 +2,7 @@ Package: binomen
 Title: Taxonomic class specification and parsing methods
 Description: Taxonomic class specification and parsing methods
 Version: 0.0.2.99
-Date: 2015-01-19
+Date: 2015-02-24
 License: MIT + file LICENSE
 URL: https://github.com/ropensci/binomen
 BugReports: https://github.com/ropensci/binomen/issues
