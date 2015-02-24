@@ -2,14 +2,24 @@
 % Please edit documentation in R/arrange.R
 \name{arrange}
 \alias{arrange}
+\alias{arrange_}
+\alias{arrange_.taxondf}
 \title{Arrange taxon or taxondf objects by one or more choices}
 \usage{
 arrange(.data, ...)
+
+arrange_(.data, ..., .dots)
+
+\method{arrange_}{taxondf}(.data, ..., .dots)
 }
 \arguments{
 \item{.data}{Input, object of class taxon}
 
-\item{...}{Further unnamed args, see examples}
+\item{...}{Comma separated list of unquoted expressions. You can treat variable names
+like they are positions. Use positive values to select variables; use negative values
+to drop variables.}
+
+\item{.dots}{Use arrange_() to do standard evaluation}
 }
 \description{
 Arrange taxon or taxondf objects by one or more choices

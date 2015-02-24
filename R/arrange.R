@@ -3,7 +3,10 @@
 #' @import lazyeval
 #' @export
 #' @param .data Input, object of class taxon
-#' @param ... Further unnamed args, see examples
+#' @param ... Comma separated list of unquoted expressions. You can treat variable names
+#' like they are positions. Use positive values to select variables; use negative values
+#' to drop variables.
+#' @param .dots Use arrange_() to do standard evaluation
 #' @examples
 #' # operating on taxonomic data.frames
 #' df <- data.frame(class=c('Magnoliopsida','Magnoliopsida','Magnoliopsida',
@@ -24,11 +27,13 @@ arrange <- function(.data, ...) {
 }
 
 #' @export
+#' @rdname arrange
 arrange_ <- function(.data, ..., .dots) {
   UseMethod("arrange_")
 }
 
 #' @export
+#' @rdname arrange
 arrange_.taxondf <- function(.data, ..., .dots) {
   dots <- lazyeval::all_dots(.dots, ..., all_named = TRUE)
   as.data.frame(arrange_impl(.data, dots))

@@ -19,14 +19,14 @@
 #' (df2 <- taxon_df(df))
 #'
 #' ## filter to get a range of classes
-#' df2 %>% range(order, genus)
-#' df2 %>% range(family, genus)
-range <- function(.data, ...) {
-  UseMethod("range")
+#' df2 %>% span(order, genus)
+#' df2 %>% span(family, genus)
+span <- function(.data, ...) {
+  UseMethod("span")
 }
 
 #' @export
-range.taxon <- function(.data, ...) {
+span.taxon <- function(.data, ...) {
   tmp <- .data$classification
   var <- vars(...)
   if(length(var) > 2) stop("Pass in only two rank names", call. = FALSE)
@@ -36,7 +36,7 @@ range.taxon <- function(.data, ...) {
 }
 
 #' @export
-range.taxondf <- function(.data, ...) {
+span.taxondf <- function(.data, ...) {
   var <- vars(...)
   if(length(var) > 2) stop("Pass in only two rank names", call. = FALSE)
   check_vars(var, names(.data))
