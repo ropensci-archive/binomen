@@ -10,10 +10,9 @@ taxon_df(x)
 \item{x}{A data.frame of taxa}
 }
 \description{
-BEWARE: doesn't work yet
+Taxon data.frame
 }
 \examples{
-\dontrun{
 # subset data.frame using taxonomy
 df <- data.frame(family=c('Asteraceae','Asteraceae','Asteraceae','Poaceae','Poaceae','Poaceae'),
                  tribe=c('Helianthi','Helianthi','Helianthi','Poaeae','Festuci','Poaeae'),
@@ -23,6 +22,5 @@ df2 <- taxon_df(df)
 df2 \%>\% select(family, Asteraceae)
 df2 \%>\% select(genus, Madia)
 df2 \%>\% select(tribe, Helianthi)
-}
 }
 

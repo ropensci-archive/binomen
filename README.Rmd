@@ -16,6 +16,8 @@ knitr::opts_chunk$set(
 
 It is meant to work with [taxize](https://github.com/ropensci/taxize), where you can get data on taxonomic names.
 
+`binomen` is sort of a taxonomic DSL (domain specific language) for R.
+
 
 ## Installation
 
@@ -39,16 +41,16 @@ Make a taxon object
 
 Index to various parts of the object
 
-The binomenl
+The binomial
 
 ```{r}
-obj$binomenl
+obj$binomial
 ```
 
 The authority
 
 ```{r}
-obj$binomenl$authority
+obj$binomial$authority
 ```
 
 The classification
