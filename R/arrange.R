@@ -1,5 +1,6 @@
 #' Arrange taxon or taxondf objects by one or more choices
 #'
+#' @import lazyeval
 #' @export
 #' @param .data Input, object of class taxon
 #' @param ... Further unnamed args, see examples

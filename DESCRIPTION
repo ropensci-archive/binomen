@@ -12,6 +12,7 @@ LazyData: yes
 Roxygen: list(wrap = FALSE)
 Imports:
     jsonlite,
+    lazyeval,
     dplyr
 Suggests:
     roxygen2,
