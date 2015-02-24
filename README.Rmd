@@ -12,12 +12,9 @@ knitr::opts_chunk$set(
 
 [![Build Status](https://api.travis-ci.org/ropensci/binomen.png)](https://travis-ci.org/ropensci/binomen)
 
-`binomen` provides a taxonomic class for defining a taxon and multiple taxa.
+`binomen` provides various taxonomic classes for defining a single taxon, multiple taxa, and a taxonomic data.frame
 
-It is meant to work with [taxize](https://github.com/ropensci/taxize), where you can get data on taxonomic names.
-
-`binomen` is sort of a taxonomic DSL (domain specific language) for R.
-
+It is sort of a companion to [taxize](https://github.com/ropensci/taxize), where you can get taxonomic data on taxonomic names from the web.
 
 ## Installation
 
@@ -73,10 +70,10 @@ Get a single rank
 obj %>% select(family)
 ```
 
-Get a range of ranks
+Get a range of ranks via `span()`
 
 ```{r}
-obj %>% range(kingdom, family)
+obj %>% span(kingdom, family)
 ```
 
 Extract classification as a `data.frame`
@@ -97,22 +94,34 @@ df <- data.frame(order=c('Asterales','Asterales','Fagales','Poales','Poales','Po
 (df2 <- taxon_df(df))
 ```
 
-Parse - get rank order matching _Fagales_
+Parse - get rank order matching _Fagales_ via `select()`
 
 ```{r}
 df2 %>% select(order, Fagales)
 ```
 
-get rank family matching _Asteraceae_
+get rank family matching _Asteraceae_ via `select()`
 
 ```{r}
 df2 %>% select(family, Asteraceae)
 ```
 
-get rank genus matching _Poa_
+get rank genus matching _Poa_ via `select()`
 
 ```{r}
 df2 %>% select(genus, Poa)
+```
+
+get range of names via `span()`
+
+```{r}
+df2 %>% span(family, genus)
+```
+
+Separate each row into a `taxon` class (many `taxon` objects are a `taxa` class)
+
+```{r}
+scatter(df2)
 ```
 
 

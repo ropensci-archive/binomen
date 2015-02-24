@@ -5,10 +5,9 @@ binomen
 
 [![Build Status](https://api.travis-ci.org/ropensci/binomen.png)](https://travis-ci.org/ropensci/binomen)
 
-`binomen` provides a taxonomic class for defining a taxon and multiple taxa.
+`binomen` provides various taxonomic classes for defining a single taxon, multiple taxa, and a taxonomic data.frame
 
-It is meant to work with [taxize](https://github.com/ropensci/taxize), where you can get data on taxonomic names.
-
+It is sort of a companion to [taxize](https://github.com/ropensci/taxize), where you can get taxonomic data on taxonomic names from the web.
 
 ## Installation
 
@@ -44,20 +43,25 @@ Make a taxon object
 
 Index to various parts of the object
 
-The binomenl
+The binomial
 
 
 ```r
-obj$binomenl
-#> NULL
+obj$binomial
+#> <binomial>
+#>   genus: Poa
+#>   epithet: annua
+#>   canonical: Poa annua
+#>   species: Poa annua L.
+#>   authority: L.
 ```
 
 The authority
 
 
 ```r
-obj$binomenl$authority
-#> NULL
+obj$binomial$authority
+#> [1] "L."
 ```
 
 The classification
@@ -100,11 +104,11 @@ obj %>% select(family)
 #>   uri: none
 ```
 
-Get a range of ranks
+Get a range of ranks via `span()`
 
 
 ```r
-obj %>% range(kingdom, family)
+obj %>% span(kingdom, family)
 #> $kingdom
 #> <taxonref>
 #>   rank: kingdom
@@ -161,7 +165,7 @@ df <- data.frame(order=c('Asterales','Asterales','Fagales','Poales','Poales','Po
 #> 6    Poales    Poaceae Holodiscus
 ```
 
-Parse - get rank order matching _Fagales_
+Parse - get rank order matching _Fagales_ via `select()`
 
 
 ```r
@@ -170,7 +174,7 @@ df2 %>% select(order, Fagales)
 #> 3 Fagales Fagaceae Quercus
 ```
 
-get rank family matching _Asteraceae_
+get rank family matching _Asteraceae_ via `select()`
 
 
 ```r
@@ -180,13 +184,87 @@ df2 %>% select(family, Asteraceae)
 #> 2 Asterales Asteraceae Helianthus
 ```
 
-get rank genus matching _Poa_
+get rank genus matching _Poa_ via `select()`
 
 
 ```r
 df2 %>% select(genus, Poa)
 #>    order  family genus
 #> 4 Poales Poaceae   Poa
+```
+
+get range of names via `span()`
+
+
+```r
+df2 %>% span(family, genus)
+#>       family      genus
+#> 1 Asteraceae Helianthus
+#> 2 Asteraceae Helianthus
+#> 3   Fagaceae    Quercus
+#> 4    Poaceae        Poa
+#> 5    Poaceae    Festuca
+#> 6    Poaceae Holodiscus
+```
+
+Separate each row into a `taxon` class (many `taxon` objects are a `taxa` class)
+
+
+```r
+scatter(df2)
+#> [[1]]
+#> <taxon>
+#>   binomial: Helianthus none
+#>   classification: 
+#>     order: Asterales
+#>     family: Asteraceae
+#>     genus: Helianthus
+#>     species: Helianthus none
+#> 
+#> [[2]]
+#> <taxon>
+#>   binomial: Helianthus none
+#>   classification: 
+#>     order: Asterales
+#>     family: Asteraceae
+#>     genus: Helianthus
+#>     species: Helianthus none
+#> 
+#> [[3]]
+#> <taxon>
+#>   binomial: Quercus none
+#>   classification: 
+#>     order: Fagales
+#>     family: Fagaceae
+#>     genus: Quercus
+#>     species: Quercus none
+#> 
+#> [[4]]
+#> <taxon>
+#>   binomial: Poa none
+#>   classification: 
+#>     order: Poales
+#>     family: Poaceae
+#>     genus: Poa
+#>     species: Poa none
+#> 
+#> [[5]]
+#> <taxon>
+#>   binomial: Festuca none
+#>   classification: 
+#>     order: Poales
+#>     family: Poaceae
+#>     genus: Festuca
+#>     species: Festuca none
+#> 
+#> [[6]]
+#> <taxon>
+#>   binomial: Holodiscus none
+#>   classification: 
+#>     order: Poales
+#>     family: Poaceae
+#>     genus: Holodiscus
+#>     species: Holodiscus none
 ```
 
 
