@@ -17,7 +17,7 @@ out \%>\% select(species)
 out \%>\% select(species) \%>\% name()
 out \%>\% select(species) \%>\% uri()
 # get range of names
-out \%>\% range(kingdom, genus)
+out \%>\% span(kingdom, genus)
 
 # operating on taxonomic data.frames
 df <- data.frame(class=c('Magnoliopsida','Magnoliopsida','Magnoliopsida',
@@ -34,12 +34,12 @@ df2 \%>\% select(family, Asteraceae)
 df2 \%>\% select(genus, Poa)
 
 ## filter to get a range of classes
-df2 \%>\% range(order, genus)
-df2 \%>\% range(family, genus)
+df2 \%>\% span(order, genus)
+df2 \%>\% span(family, genus)
 
 ## combine them
  df2 \%>\%
-   range(family, genus) \%>\%
+   span(family, genus) \%>\%
    select(family, Asteraceae)
 }
 

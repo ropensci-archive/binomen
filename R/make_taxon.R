@@ -7,10 +7,10 @@
 #' @param authority Taxonomic authority
 #' @param ... Further args.
 #' @examples \dontrun{
+#' (out <- make_taxon(genus="Poa"))
 #' (out <- make_taxon(genus="Poa", epithet="annua", authority="L."))
 #' (out <- make_taxon(genus="Poa", epithet="annua", authority="L.",
 #'                    family='Poaceae', clazz='Poales', kingdom='Plantae', variety='annua'))
-#' (out <- make_taxon(genus="Poa"))
 #' out$binomial
 #' out$binomial$canonical
 #' out$binomial$species
@@ -18,7 +18,7 @@
 #' out$classification
 #' out$classification$family
 #' out %>% select(family) # get a single rank
-#' out %>% range(kingdom, family) # get a range of ranks
+#' out %>% span(kingdom, family) # get a range of ranks
 #' gethier(out) # get hierarchy as data.frame
 #' }
 

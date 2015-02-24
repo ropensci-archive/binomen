@@ -7,7 +7,7 @@
 #' # operating on `taxon` objects
 #' out <- make_taxon(genus="Poa", epithet="annua", authority="L.",
 #'    family='Poaceae', clazz='Poales', kingdom='Plantae', variety='annua')
-#' out %>% range(kingdom, genus)
+#' out %>% span(kingdom, genus)
 #'
 #' # operating on taxonomic data.frames
 #' df <- data.frame(class=c('Magnoliopsida','Magnoliopsida','Magnoliopsida',
