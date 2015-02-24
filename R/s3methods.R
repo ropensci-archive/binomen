@@ -191,19 +191,15 @@ print.taxon <- function(x, ...){
 #' taxa(taxon(bin, class), taxon(bin, class))
 taxa <- function(...){
   res <- list(...)
+  for(i in seq_along(res)){
+    if(is(res[[i]], "list")){
+      restmp <- res[i]
+      res[[i]] <- NULL
+      res <- c(res, unlist(restmp, recursive = FALSE))
+    } else {
+      res[[i]] <- res[[i]]
+    }
+  }
   check_type(res, "taxon")
   structure(res, class="taxa")
 }
-
-# setMethod("[[", "taxon", function(x, i, ...){
-#   tmp <- x@classification
-#   slot(tmp, i)@name
-# })
-#
-# setMethod("[", "taxon", function(x, i, j, ...){
-#   tmp <- x@classification
-#   nn <- slotNames(tmp)
-#   from <- match(j, nn)
-#   to <- match(i, nn)
-#   vapply(nn[to:from], function(g) slot(tmp, g)@name, "")
-# })

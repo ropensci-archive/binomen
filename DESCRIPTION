@@ -10,9 +10,9 @@ Authors@R: person("Scott", "Chamberlain", role = c("aut", "cre"),
     email = "myrmecocystus@gmail.com")
 LazyData: yes
 Roxygen: list(wrap = FALSE)
-Depends:
-    magrittr,
-    jsonlite
+Imports:
+    jsonlite,
+    dplyr
 Suggests:
     roxygen2,
     knitr,

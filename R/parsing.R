@@ -1,12 +1,17 @@
-#' Parse taxon or taxondf objects by a range of names
+#' Select, parse, etc. taxanomic names
 #'
-#' @export
-#' @param .data Input, object of class taxon
-#' @param ... Further unnamed args, see examples
+#' @name parsing
 #' @examples
 #' # operating on `taxon` objects
 #' out <- make_taxon(genus="Poa", epithet="annua", authority="L.",
 #'    family='Poaceae', clazz='Poales', kingdom='Plantae', variety='annua')
+#' # get single name
+#' out %>% select(family)
+#' out %>% select(genus)
+#' out %>% select(species)
+#' out %>% select(species) %>% name()
+#' out %>% select(species) %>% uri()
+#' # get range of names
 #' out %>% range(kingdom, genus)
 #'
 #' # operating on taxonomic data.frames
@@ -18,28 +23,17 @@
 #'          stringsAsFactors = FALSE)
 #' (df2 <- taxon_df(df))
 #'
+#' ## select single taxonomic class
+#' df2 %>% select(order, Fagales)
+#' df2 %>% select(family, Asteraceae)
+#' df2 %>% select(genus, Poa)
+#'
 #' ## filter to get a range of classes
 #' df2 %>% range(order, genus)
 #' df2 %>% range(family, genus)
-range <- function(.data, ...) {
-  UseMethod("range")
-}
-
-#' @export
-range.taxon <- function(.data, ...) {
-  tmp <- .data$classification
-  var <- vars(...)
-  if(length(var) > 2) stop("Pass in only two rank names", call. = FALSE)
-  check_vars(var, names(tmp))
-  matches <- sapply(var, grep, x=names(tmp))
-  tmp[fill_nums(matches)]
-}
-
-#' @export
-range.taxondf <- function(.data, ...) {
-  var <- vars(...)
-  if(length(var) > 2) stop("Pass in only two rank names", call. = FALSE)
-  check_vars(var, names(.data))
-  matches <- sapply(var, grep, x=names(.data))
-  .data[fill_nums(matches)]
-}
+#'
+#' ## combine them
+#'  df2 %>%
+#'    range(family, genus) %>%
+#'    select(family, Asteraceae)
+NULL

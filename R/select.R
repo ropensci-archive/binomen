@@ -1,6 +1,5 @@
 #' Select names
 #'
-#' @import magrittr
 #' @export
 #'
 #' @param .data Input, object of class taxon
