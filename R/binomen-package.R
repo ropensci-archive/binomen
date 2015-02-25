@@ -29,16 +29,10 @@
 #' (df2 <- taxon_df(df))
 #'
 #' ## select single taxonomic class
-#' df2 %>% pick(order, Fagales)
-#' df2 %>% pick(family, Asteraceae)
-#' df2 %>% pick(genus, Poa)
+#' df2 %>% pick(order)
+#' df2 %>% pick(family, genus)
 #'
 #' ## filter to get a range of classes
 #' df2 %>% span(order, genus)
 #' df2 %>% span(family, genus)
-#'
-#' ## combine them
-#'  df2 %>%
-#'    span(family, genus) %>%
-#'    pick(family, Asteraceae)
 NULL

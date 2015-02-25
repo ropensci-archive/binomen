@@ -9,9 +9,8 @@
 #'                  genus=c('Helianthus','Helianthus','Madia','Poa','Festuca','Holodiscus'),
 #'                  stringsAsFactors = FALSE)
 #' df2 <- taxon_df(df)
-#' df2 %>% pick(family, Asteraceae)
-#' df2 %>% pick(genus, Madia)
-#' df2 %>% pick(tribe, Helianthi)
+#' df2 %>% pick(family)
+#' df2 %>% pick(genus, tribe)
 
 taxon_df <- function(x){
   structure(x, class=c('taxondf','data.frame'))

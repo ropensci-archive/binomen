@@ -10,10 +10,9 @@
 #' # operating on `taxon` objects
 #' out <- make_taxon(genus="Poa", epithet="annua", authority="L.",
 #'    family='Poaceae', clazz='Poales', kingdom='Plantae', variety='annua')
-#' # get single name
 #' out %>% pick(family)
 #' out %>% pick(genus)
-#' out %>% pick(species)
+#' out %>% pick(species, genus)
 #' out %>% pick(species) %>% name()
 #' out %>% pick(species) %>% uri()
 #'
@@ -26,10 +25,14 @@
 #'          stringsAsFactors = FALSE)
 #' (df2 <- taxon_df(df))
 #'
-#' ## select single taxonomic class
-#' df2 %>% pick(order, Fagales)
-#' df2 %>% pick(family, Asteraceae)
-#' df2 %>% pick(genus, Poa)
+#' ## select single or many taxonomic classes
+#' df2 %>% pick(order)
+#' df2 %>% pick(family, genus)
+#'
+#' # From taxa object
+#' df2 %>% scatter %>% pick(family)
+#' df2 %>% scatter %>% pick(family, species)
+#' df2 %>% scatter %>% pick(family, species, genus)
 pick <- function(.data, ...) {
   UseMethod("pick")
 }
@@ -38,39 +41,20 @@ pick <- function(.data, ...) {
 pick.taxon <- function(.data, ...){
   tmp <- .data$classification
   name <- vars(...)
-  tmp[[name]]
+  taxon(binomial = .data$binomial,
+        classification = do.call("classification", tmp[names(tmp) %in% name]))
+}
+
+#' @export
+pick.taxa <- function(.data, ...){
+  taxa(lapply(.data, pick, ...))
 }
 
 #' @export
 pick.taxondf <- function(.data, ...){
   var <- vars(...)
-  if(length(var) > 2) stop("Pass in only two values", call. = FALSE)
-  check_vars(var[1], names(.data))
-  .data[ .data[var[1]] == var[2] , ]
-}
-
-#' @export
-#' @rdname pick
-name <- function(.data) {
-  UseMethod("name")
-}
-
-#' @export
-#' @rdname pick
-name.taxonref <- function(.data) {
-  .data$name
-}
-
-#' @export
-#' @rdname pick
-uri <- function(.data) {
-  UseMethod("uri")
-}
-
-#' @export
-#' @rdname pick
-uri.taxonref <- function(.data) {
-  .data$uri
+  check_vars(var, names(.data))
+  select_(.data, .dots = var)
 }
 
 # helpers ---------------------------

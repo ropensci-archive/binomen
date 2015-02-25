@@ -19,8 +19,7 @@ df <- data.frame(family=c('Asteraceae','Asteraceae','Asteraceae','Poaceae','Poac
                  genus=c('Helianthus','Helianthus','Madia','Poa','Festuca','Holodiscus'),
                  stringsAsFactors = FALSE)
 df2 <- taxon_df(df)
-df2 \%>\% pick(family, Asteraceae)
-df2 \%>\% pick(genus, Madia)
-df2 \%>\% pick(tribe, Helianthi)
+df2 \%>\% pick(family)
+df2 \%>\% pick(genus, tribe)
 }
 

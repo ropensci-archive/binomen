@@ -105,25 +105,19 @@ df <- data.frame(order=c('Asterales','Asterales','Fagales','Poales','Poales','Po
 (df2 <- taxon_df(df))
 ```
 
-Parse - get rank order matching _Fagales_ via `pick()`
+Parse - get rank order via `pick()`
 
 ```{r}
-df2 %>% pick(order, Fagales)
+df2 %>% pick(order)
 ```
 
-get rank family matching _Asteraceae_ via `pick()`
+get ranks order, family, and genus via `pick()`
 
 ```{r}
-df2 %>% pick(family, Asteraceae)
+df2 %>% pick(order, family, genus)
 ```
 
-get rank genus matching _Poa_ via `pick()`
-
-```{r}
-df2 %>% pick(genus, Poa)
-```
-
-get range of names via `span()`
+get range of names via `span()`, from rank `X` to rank `Y`
 
 ```{r}
 df2 %>% span(family, genus)
