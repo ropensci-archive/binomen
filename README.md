@@ -70,12 +70,12 @@ The classification
 ```r
 obj$classification
 #> <classification>
-#>     kingdom: Plantae
-#>     clazz: Poales
-#>     family: Poaceae
-#>     genus: Poa
-#>     species: Poa annua
-#>     variety: annua
+#>   kingdom: Plantae
+#>   clazz: Poales
+#>   family: Poaceae
+#>   genus: Poa
+#>   species: Poa annua
+#>   variety: annua
 ```
 
 The family
@@ -109,26 +109,7 @@ Get a range of ranks via `span()`
 
 ```r
 obj %>% span(kingdom, family)
-#> $kingdom
-#> <taxonref>
-#>   rank: kingdom
-#>   name: Plantae
-#>   id: none
-#>   uri: none
-#> 
-#> $clazz
-#> <taxonref>
-#>   rank: clazz
-#>   name: Poales
-#>   id: none
-#>   uri: none
-#> 
-#> $family
-#> <taxonref>
-#>   rank: family
-#>   name: Poaceae
-#>   id: none
-#>   uri: none
+#> Error: Pass in only two rank names
 ```
 
 Extract classification as a `data.frame`
@@ -265,8 +246,25 @@ scatter(df2)
 #>     family: Poaceae
 #>     genus: Holodiscus
 #>     species: Holodiscus none
+#> 
+#> attr(,"class")
+#> [1] "taxa"
 ```
 
+And you can re-assemble a data.frame from the output of `scatter()` with `assemble()`
+
+
+```r
+out <- scatter(df2)
+assemble(out)
+#>       order     family      genus         species
+#> 1 Asterales Asteraceae Helianthus Helianthus none
+#> 2 Asterales Asteraceae Helianthus Helianthus none
+#> 3   Fagales   Fagaceae    Quercus    Quercus none
+#> 4    Poales    Poaceae        Poa        Poa none
+#> 5    Poales    Poaceae    Festuca    Festuca none
+#> 6    Poales    Poaceae Holodiscus Holodiscus none
+```
 
 ## Meta
 

@@ -124,6 +124,12 @@ Separate each row into a `taxon` class (many `taxon` objects are a `taxa` class)
 scatter(df2)
 ```
 
+And you can re-assemble a data.frame from the output of `scatter()` with `assemble()`
+
+```{r}
+out <- scatter(df2)
+assemble(out)
+```
 
 ## Meta
 

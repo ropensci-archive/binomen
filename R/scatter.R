@@ -1,6 +1,8 @@
 #' Scatter each taxon in a taxondf to a taxon object
 #'
+#' @importFrom dplyr rbind_all
 #' @export
+#'
 #' @param x A taxonomic data.frame
 #' @param ... Further args, ignored for now
 #' @return Gives a \code{taxa} object, with each individual component a row from your
