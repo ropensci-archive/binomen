@@ -33,7 +33,7 @@ span <- function(.data, ...) {
 #' @export
 span.taxon <- function(.data, ...) {
   var <- vars(...)
-  taxonparse(.data, vars)
+  taxonparse(.data, var)
 }
 
 #' @export
