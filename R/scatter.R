@@ -5,6 +5,8 @@
 #' @param ... Further args, ignored for now
 #' @return Gives a \code{taxa} object, with each individual component a row from your
 #' data.frame, and of class \code{taxon}
+#' @details Right now, \code{assemble} may not give back the identical data.frame that one
+#' would pass to \code{scatter}.
 #' @examples
 #' # operating on taxonomic data.frames
 #' df <- data.frame(class=c('Magnoliopsida','Magnoliopsida','Magnoliopsida',
@@ -16,7 +18,13 @@
 #' (df2 <- taxon_df(df))
 #'
 #' ## scatter each taxon into a taxon class
-#' df2 %>% scatter(order)
+#' df2 %>% scatter()
+#'
+#' ## re-assemble
+#' df2
+#' df2 %>% scatter()
+#' df2 %>% scatter() %>% assemble
+#' identical(df2, df2 %>% scatter() %>% assemble)
 scatter <- function(x, ...) {
   UseMethod("scatter")
 }
@@ -36,4 +44,20 @@ class2clazz <- function(x){
   } else {
     x
   }
+}
+
+#' @export
+#' @rdname scatter
+assemble <- function(x, ...) {
+  UseMethod("assemble")
+}
+
+#' @export
+#' @rdname scatter
+assemble.taxa <- function(x, ...) {
+  tmp <- lapply(x, "[[", "classification")
+  x <- as.data.frame(rbind_all(lapply(tmp, function(b){
+    data.frame(lapply(b, function(n) setNames(n[['name']], n[['rank']])), stringsAsFactors = FALSE, row.names = NULL)
+  })))
+  taxon_df(x)
 }

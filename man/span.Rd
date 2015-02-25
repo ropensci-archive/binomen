@@ -9,7 +9,11 @@ span(.data, ...)
 \arguments{
 \item{.data}{Input, object of class taxon}
 
-\item{...}{Further unnamed args, see examples}
+\item{...}{Pass in two unquoted taxonomic rank names, and only two. May make this
+more flexible in the future.}
+}
+\value{
+A single or list of \code{taxon} class objects
 }
 \description{
 Parse taxon or taxondf objects by a range of names

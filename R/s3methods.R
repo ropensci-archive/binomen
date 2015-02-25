@@ -150,7 +150,7 @@ print.classification <- function(x, ...){
   cat("<classification>", sep = "\n")
   clss <- x[x != "none"]
   for(i in seq_along(clss)){
-    cat(sprintf("    %s: %s", clss[[i]]$rank, clss[[i]]$name), sep = "\n")
+    cat(sprintf("  %s: %s", clss[[i]]$rank, clss[[i]]$name), sep = "\n")
   }
 }
 

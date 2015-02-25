@@ -2,7 +2,9 @@
 #'
 #' @export
 #' @param .data Input, object of class taxon
-#' @param ... Further unnamed args, see examples
+#' @param ... Pass in two unquoted taxonomic rank names, and only two. May make this
+#' more flexible in the future.
+#' @return A single or list of \code{taxon} class objects
 #' @examples
 #' # operating on `taxon` objects
 #' out <- make_taxon(genus="Poa", epithet="annua", authority="L.",
@@ -32,20 +34,6 @@ span <- function(.data, ...) {
 span.taxon <- function(.data, ...) {
   var <- vars(...)
   taxonparse(.data, vars)
-#   tmp <- .data$classification
-#   if(length(var) > 2) stop("Pass in only two rank names", call. = FALSE)
-#   check_vars(var, names(tmp))
-#   matches <- sapply(var, grep, x=names(tmp))
-#   tmp[fill_nums(matches)]
-}
-
-taxonparse <- function(w, vars){
-  tmp <- w$classification
-  if(length(vars) != 2) stop("Pass in only two rank names", call. = FALSE)
-  check_vars(vars, names(tmp))
-  matches <- sapply(vars, grep, x=names(tmp))
-  w$classification <- do.call("classification", tmp[fill_nums(matches)])
-  return(w)
 }
 
 #' @export
@@ -60,4 +48,13 @@ span.taxondf <- function(.data, ...) {
   check_vars(var, names(.data))
   matches <- sapply(var, grep, x=names(.data))
   .data[fill_nums(matches)]
+}
+
+taxonparse <- function(w, vars){
+  tmp <- w$classification
+  if(length(vars) != 2) stop("Pass in only two rank names", call. = FALSE)
+  check_vars(vars, names(tmp))
+  matches <- sapply(vars, grep, x=names(tmp))
+  w$classification <- do.call("classification", tmp[fill_nums(matches)])
+  return(w)
 }
