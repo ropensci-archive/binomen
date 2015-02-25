@@ -30,7 +30,7 @@ out$binomial$species
 out$binomial$authority
 out$classification
 out$classification$family
-out \%>\% select(family) # get a single rank
+out \%>\% pick(family) # get a single rank
 out \%>\% span(kingdom, family) # get a range of ranks
 gethier(out) # get hierarchy as data.frame
 }

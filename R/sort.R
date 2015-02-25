@@ -1,4 +1,4 @@
-#' Arrange taxon or taxondf objects by one or more choices
+#' Sort taxon or taxondf objects by one or more choices
 #'
 #' @import lazyeval
 #' @export
@@ -6,7 +6,7 @@
 #' @param ... Comma separated list of unquoted expressions. You can treat variable names
 #' like they are positions. Use positive values to select variables; use negative values
 #' to drop variables.
-#' @param .dots Use arrange_() to do standard evaluation
+#' @param .dots Use sort_() to do standard evaluation
 #' @examples
 #' # operating on taxonomic data.frames
 #' df <- data.frame(class=c('Magnoliopsida','Magnoliopsida','Magnoliopsida',
@@ -17,31 +17,26 @@
 #'          stringsAsFactors = FALSE)
 #' (df2 <- taxon_df(df))
 #'
-#' ## arrange the taxonomic data.frame
-#' df2 %>% arrange(order)
-#' df2 %>% arrange(family)
-#' df2 %>% arrange(genus)
-#' df2 %>% arrange(genus, order)
-arrange <- function(.data, ...) {
-  arrange_(.data, .dots = lazyeval::lazy_dots(...))
+#' ## sort the taxonomic data.frame
+#' df2 %>% sort(order)
+#' df2 %>% sort(family)
+#' df2 %>% sort(genus)
+#' df2 %>% sort(genus, order)
+sort <- function(.data, ...) {
+  sort_(.data, .dots = lazyeval::lazy_dots(...))
 }
 
 #' @export
-#' @rdname arrange
-arrange_ <- function(.data, ..., .dots) {
-  UseMethod("arrange_")
+#' @rdname sort
+sort_ <- function(.data, ..., .dots) {
+  UseMethod("sort_")
 }
 
 #' @export
-#' @rdname arrange
-arrange_.taxondf <- function(.data, ..., .dots) {
+#' @rdname sort
+sort_.taxondf <- function(.data, ..., .dots) {
   dots <- lazyeval::all_dots(.dots, ..., all_named = TRUE)
   as.data.frame(arrange_impl(.data, dots))
-#   var <- vars(...)
-#   if(length(var) > 2) stop("Pass in only two rank names", call. = FALSE)
-#   check_vars(var, names(.data))
-#   matches <- sapply(var, grep, x=names(.data))
-#   .data[fill_nums(matches)]
 }
 
 arrange_impl <- function (data, dots) {

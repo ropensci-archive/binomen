@@ -1,4 +1,4 @@
-#' Select names
+#' Pick names
 #'
 #' @export
 #'
@@ -9,11 +9,11 @@
 #' out <- make_taxon(genus="Poa", epithet="annua", authority="L.",
 #'    family='Poaceae', clazz='Poales', kingdom='Plantae', variety='annua')
 #' # get single name
-#' out %>% select(family)
-#' out %>% select(genus)
-#' out %>% select(species)
-#' out %>% select(species) %>% name()
-#' out %>% select(species) %>% uri()
+#' out %>% pick(family)
+#' out %>% pick(genus)
+#' out %>% pick(species)
+#' out %>% pick(species) %>% name()
+#' out %>% pick(species) %>% uri()
 #'
 #' # operating on taxonomic data.frames
 #' df <- data.frame(class=c('Magnoliopsida','Magnoliopsida','Magnoliopsida',
@@ -25,22 +25,22 @@
 #' (df2 <- taxon_df(df))
 #'
 #' ## select single taxonomic class
-#' df2 %>% select(order, Fagales)
-#' df2 %>% select(family, Asteraceae)
-#' df2 %>% select(genus, Poa)
-select <- function(.data, ...) {
-  UseMethod("select")
+#' df2 %>% pick(order, Fagales)
+#' df2 %>% pick(family, Asteraceae)
+#' df2 %>% pick(genus, Poa)
+pick <- function(.data, ...) {
+  UseMethod("pick")
 }
 
 #' @export
-select.taxon <- function(.data, ...){
+pick.taxon <- function(.data, ...){
   tmp <- .data$classification
   name <- vars(...)
   tmp[[name]]
 }
 
 #' @export
-select.taxondf <- function(.data, ...){
+pick.taxondf <- function(.data, ...){
   var <- vars(...)
   if(length(var) > 2) stop("Pass in only two values", call. = FALSE)
   check_vars(var[1], names(.data))
@@ -48,25 +48,25 @@ select.taxondf <- function(.data, ...){
 }
 
 #' @export
-#' @rdname select
+#' @rdname pick
 name <- function(.data) {
   UseMethod("name")
 }
 
 #' @export
-#' @rdname select
+#' @rdname pick
 name.taxonref <- function(.data) {
   .data$name
 }
 
 #' @export
-#' @rdname select
+#' @rdname pick
 uri <- function(.data) {
   UseMethod("uri")
 }
 
 #' @export
-#' @rdname select
+#' @rdname pick
 uri.taxonref <- function(.data) {
   .data$uri
 }
