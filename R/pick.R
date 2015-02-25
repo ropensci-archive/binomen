@@ -4,6 +4,8 @@
 #'
 #' @param .data Input, object of class taxon
 #' @param ... Further unnamed args, see examples
+#' @return For \code{taxon} inputs, gives back a \code{taxonref} object. For \code{taxondf}
+#' inputs, gives back \code{taxondf}.
 #' @examples
 #' # operating on `taxon` objects
 #' out <- make_taxon(genus="Poa", epithet="annua", authority="L.",

@@ -23,6 +23,10 @@ uri(.data)
 
 \item{...}{Further unnamed args, see examples}
 }
+\value{
+For \code{taxon} inputs, gives back a \code{taxonref} object. For \code{taxondf}
+inputs, gives back \code{taxondf}.
+}
 \description{
 Pick names
 }
