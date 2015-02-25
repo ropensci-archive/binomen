@@ -67,7 +67,7 @@ obj$classification$family
 Get a single rank
 
 ```{r}
-obj %>% select(family)
+obj %>% pick(family)
 ```
 
 Get a range of ranks via `span()`
@@ -94,22 +94,22 @@ df <- data.frame(order=c('Asterales','Asterales','Fagales','Poales','Poales','Po
 (df2 <- taxon_df(df))
 ```
 
-Parse - get rank order matching _Fagales_ via `select()`
+Parse - get rank order matching _Fagales_ via `pick()`
 
 ```{r}
-df2 %>% select(order, Fagales)
+df2 %>% pick(order, Fagales)
 ```
 
-get rank family matching _Asteraceae_ via `select()`
+get rank family matching _Asteraceae_ via `pick()`
 
 ```{r}
-df2 %>% select(family, Asteraceae)
+df2 %>% pick(family, Asteraceae)
 ```
 
-get rank genus matching _Poa_ via `select()`
+get rank genus matching _Poa_ via `pick()`
 
 ```{r}
-df2 %>% select(genus, Poa)
+df2 %>% pick(genus, Poa)
 ```
 
 get range of names via `span()`

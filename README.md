@@ -96,7 +96,7 @@ Get a single rank
 
 
 ```r
-obj %>% select(family)
+obj %>% pick(family)
 #> <taxonref>
 #>   rank: family
 #>   name: Poaceae
@@ -109,7 +109,12 @@ Get a range of ranks via `span()`
 
 ```r
 obj %>% span(kingdom, family)
-#> Error: Pass in only two rank names
+#> <taxon>
+#>   binomial: Poa annua
+#>   classification: 
+#>     kingdom: Plantae
+#>     clazz: Poales
+#>     family: Poaceae
 ```
 
 Extract classification as a `data.frame`
@@ -146,30 +151,30 @@ df <- data.frame(order=c('Asterales','Asterales','Fagales','Poales','Poales','Po
 #> 6    Poales    Poaceae Holodiscus
 ```
 
-Parse - get rank order matching _Fagales_ via `select()`
+Parse - get rank order matching _Fagales_ via `pick()`
 
 
 ```r
-df2 %>% select(order, Fagales)
+df2 %>% pick(order, Fagales)
 #>     order   family   genus
 #> 3 Fagales Fagaceae Quercus
 ```
 
-get rank family matching _Asteraceae_ via `select()`
+get rank family matching _Asteraceae_ via `pick()`
 
 
 ```r
-df2 %>% select(family, Asteraceae)
+df2 %>% pick(family, Asteraceae)
 #>       order     family      genus
 #> 1 Asterales Asteraceae Helianthus
 #> 2 Asterales Asteraceae Helianthus
 ```
 
-get rank genus matching _Poa_ via `select()`
+get rank genus matching _Poa_ via `pick()`
 
 
 ```r
-df2 %>% select(genus, Poa)
+df2 %>% pick(genus, Poa)
 #>    order  family genus
 #> 4 Poales Poaceae   Poa
 ```
