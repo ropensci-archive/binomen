@@ -9,6 +9,17 @@ binomen
 
 It is sort of a companion to [taxize](https://github.com/ropensci/taxize), where you can get taxonomic data on taxonomic names from the web.
 
+The verbs:
+
+* `gethier()` - get hierarchy from a `taxon` class
+* `scatter()` - make each row in taxonomic data.frame (`taxondf`) a separate `taxon` object within a single `taxa` object
+* `assemble()` - make a `taxa` object into a `taxondf` data.frame
+* `pick()` - pick out 
+* `sort()` - sort by columns, similar to `dplyr::arrange`
+* `span()` - pick a range of names by taxonomic class (e.g., kingdom to genus)
+* `name()` - get the taxon name from a `taxonref` object
+* `uri()` - get the reference uri from a `taxonref` object
+
 ## Installation
 
 
