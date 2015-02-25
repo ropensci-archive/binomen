@@ -103,16 +103,44 @@ obj$classification$family
 
 ## Subset taxon objects
 
-Get a single rank
+Get one or more ranks via `pick()`
 
 
 ```r
 obj %>% pick(family)
-#> <taxonref>
-#>   rank: family
-#>   name: Poaceae
-#>   id: none
-#>   uri: none
+#> <taxon>
+#>   binomial: Poa annua
+#>   classification: 
+#>     family: Poaceae
+obj %>% pick(family, genus)
+#> <taxon>
+#>   binomial: Poa annua
+#>   classification: 
+#>     family: Poaceae
+#>     genus: Poa
+```
+
+Drop one or more ranks via `pop()`
+
+
+```r
+obj %>% pop(family)
+#> <taxon>
+#>   binomial: Poa annua
+#>   classification: 
+#>     kingdom: Plantae
+#>     clazz: Poales
+#>     genus: Poa
+#>     species: Poa annua
+#>     variety: annua
+obj %>% pop(family, genus)
+#> <taxon>
+#>   binomial: Poa annua
+#>   classification: 
+#>     kingdom: Plantae
+#>     clazz: Poales
+#>     species: Poa annua
+#>     variety: annua
 ```
 
 Get a range of ranks via `span()`
@@ -162,35 +190,35 @@ df <- data.frame(order=c('Asterales','Asterales','Fagales','Poales','Poales','Po
 #> 6    Poales    Poaceae Holodiscus
 ```
 
-Parse - get rank order matching _Fagales_ via `pick()`
+Parse - get rank order via `pick()`
 
 
 ```r
-df2 %>% pick(order, Fagales)
-#>     order   family   genus
-#> 3 Fagales Fagaceae Quercus
+df2 %>% pick(order)
+#>       order
+#> 1 Asterales
+#> 2 Asterales
+#> 3   Fagales
+#> 4    Poales
+#> 5    Poales
+#> 6    Poales
 ```
 
-get rank family matching _Asteraceae_ via `pick()`
+get ranks order, family, and genus via `pick()`
 
 
 ```r
-df2 %>% pick(family, Asteraceae)
+df2 %>% pick(order, family, genus)
 #>       order     family      genus
 #> 1 Asterales Asteraceae Helianthus
 #> 2 Asterales Asteraceae Helianthus
+#> 3   Fagales   Fagaceae    Quercus
+#> 4    Poales    Poaceae        Poa
+#> 5    Poales    Poaceae    Festuca
+#> 6    Poales    Poaceae Holodiscus
 ```
 
-get rank genus matching _Poa_ via `pick()`
-
-
-```r
-df2 %>% pick(genus, Poa)
-#>    order  family genus
-#> 4 Poales Poaceae   Poa
-```
-
-get range of names via `span()`
+get range of names via `span()`, from rank `X` to rank `Y`
 
 
 ```r

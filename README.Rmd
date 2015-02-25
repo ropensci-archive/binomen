@@ -75,10 +75,18 @@ obj$classification$family
 
 ## Subset taxon objects
 
-Get a single rank
+Get one or more ranks via `pick()`
 
 ```{r}
 obj %>% pick(family)
+obj %>% pick(family, genus)
+```
+
+Drop one or more ranks via `pop()`
+
+```{r}
+obj %>% pop(family)
+obj %>% pop(family, genus)
 ```
 
 Get a range of ranks via `span()`
