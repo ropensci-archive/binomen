@@ -10,12 +10,12 @@ Taxonomic class methods
 The taxonomic classes:
 
 \itemize{
- \item binomial A binomial, via \code{\link{binomial}}
- \item taxonref A single taxonref, via \code{\link{taxonref}}
- \item taxonrefs A list of taxonrefs, via \code{\link{taxonrefs}}
- \item classification A classification object, via \code{\link{classification}}
- \item taxon A taxon, via \code{\link{taxon}}
- \item taxa List of taxon objects, via \code{\link{taxa}}
+ \item \strong{binomial} - A binomial, via \code{\link{binomial}}
+ \item \strong{taxonref} - A single taxonref, via \code{\link{taxonref}}
+ \item \strong{taxonrefs} - A list of taxonrefs, via \code{\link{taxonrefs}}
+ \item \strong{classification} - A classification object, via \code{\link{classification}}
+ \item \strong{taxon} - A taxon, via \code{\link{taxon}}
+ \item \strong{taxa} - List of taxon objects, via \code{\link{taxa}}
 }
 }
 
