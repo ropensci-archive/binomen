@@ -1,13 +1,17 @@
 Package: binomen
-Title: Taxonomic class specification and parsing methods
-Description: Taxonomic class specification and parsing methods
-Version: 0.0.2.99
-Date: 2015-02-25
+Title: 'Taxonomic' Specification and Parsing Methods
+Description: 'Taxonomic' specification and parsing methods.
+    Includes functions for working with taxonomic data, including
+    functions for combining and separating taxonomic groups by
+    any rank or name. Allows standard (SE) and non-standard
+    evaluation (NSE).
+Version: 0.0.2.9910
+Date: 2015-08-13
 License: MIT + file LICENSE
-URL: https://github.com/ropensci/binomen
-BugReports: https://github.com/ropensci/binomen/issues
 Authors@R: person("Scott", "Chamberlain", role = c("aut", "cre"),
     email = "myrmecocystus@gmail.com")
+URL: https://github.com/ropensci/binomen
+BugReports: https://github.com/ropensci/binomen/issues
 LazyData: yes
 Roxygen: list(wrap = FALSE)
 Imports:
@@ -15,6 +19,6 @@ Imports:
     lazyeval,
     dplyr
 Suggests:
-    roxygen2,
+    testthat,
     knitr,
     taxize
