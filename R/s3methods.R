@@ -1,4 +1,4 @@
-#' Taxonomic S4 class methods
+#' Taxonomic class methods
 #'
 #' @name taxon_classes
 #' @details

@@ -1,4 +1,6 @@
-#' Pop names out, drop them that is
+#' @title Pop names out
+#'
+#' @description That is, drop them
 #'
 #' @importFrom dplyr select_
 #' @export
