@@ -2,7 +2,7 @@
 % Please edit documentation in R/s3methods.R
 \name{taxonrefs}
 \alias{taxonrefs}
-\title{An S4 class to represent a list of taxonomic references}
+\title{A class to represent a list of taxonomic references}
 \usage{
 taxonrefs(...)
 }
@@ -10,7 +10,7 @@ taxonrefs(...)
 \item{...}{One or more taxonref objects}
 }
 \description{
-An S4 class to represent a list of taxonomic references
+A class to represent a list of taxonomic references
 }
 \examples{
 a <- taxonref("genus", "Poa", 56, "http://scottchamberlain.info/")

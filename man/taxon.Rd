@@ -2,7 +2,7 @@
 % Please edit documentation in R/s3methods.R
 \name{taxon}
 \alias{taxon}
-\title{An S4 class to represent a single taxon}
+\title{A class to represent a single taxon}
 \usage{
 taxon(binomial, classification)
 }
@@ -12,7 +12,7 @@ taxon(binomial, classification)
 \item{classification}{A classification object}
 }
 \description{
-An S4 class to represent a single taxon
+A class to represent a single taxon
 }
 \examples{
 bin <- binomial("Poa", "annua", authority="L.")

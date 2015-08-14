@@ -2,7 +2,7 @@
 % Please edit documentation in R/s3methods.R
 \name{taxa}
 \alias{taxa}
-\title{An S4 class to represent a list of taxa}
+\title{A class to represent a list of taxa}
 \usage{
 taxa(...)
 }
@@ -10,7 +10,7 @@ taxa(...)
 \item{...}{An object of class taxon}
 }
 \description{
-An S4 class to represent a list of taxa
+A class to represent a list of taxa
 }
 \examples{
 bin <- binomial("Poa", "annua", authority="L.")

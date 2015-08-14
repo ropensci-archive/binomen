@@ -2,7 +2,7 @@
 % Please edit documentation in R/s3methods.R
 \name{taxonref}
 \alias{taxonref}
-\title{An S4 class to represent a taxonomic reference}
+\title{A class to represent a taxonomic reference}
 \usage{
 taxonref(rank = "none", name = "none", id = "none", uri = "none")
 }
@@ -16,7 +16,7 @@ taxonref(rank = "none", name = "none", id = "none", uri = "none")
 \item{uri}{(character) Source of name}
 }
 \description{
-An S4 class to represent a taxonomic reference
+A class to represent a taxonomic reference
 }
 \examples{
 taxonref("genus", "Poa", 56, "http://scottchamberlain.info/")
