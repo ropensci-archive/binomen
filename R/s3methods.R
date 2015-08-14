@@ -86,6 +86,13 @@ check_type <- function(x, type){
   }
 }
 
+check_one_type <- function(x, type){
+  if (!is(x, type)) {
+    stop(sprintf("One or more inputs was not of class %s", type),
+         call. = FALSE)
+  }
+}
+
 #' An S4 class to represent a taxonomic classification
 #'
 #' @export
@@ -168,8 +175,10 @@ print.classification <- function(x, ...){
 #'    species=taxonref("family", "Poaceae"))
 #' taxon(bin, class)
 taxon <- function(binomial, classification){
+  check_one_type(binomial, "binomial")
+  check_one_type(classification, "classification")
   res <- list(binomial = binomial, classification = classification)
-  structure(res, class="taxon")
+  structure(res, class = "taxon")
 }
 
 #' @export
