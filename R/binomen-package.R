@@ -3,8 +3,8 @@
 #' @name binomen-package
 #' @aliases binomen
 #' @docType package
-#' @title Taxonomic class specification and parsing methods
 #' @keywords package
+#' @author Scott Chamberlain \email{myrmecocystus@@gmail.com}
 #'
 #' @examples
 #' # operating on `taxon` objects

@@ -38,5 +38,8 @@ df2 \%>\% pick(family, genus)
 df2 \%>\% span(order, genus)
 df2 \%>\% span(family, genus)
 }
+\author{
+Scott Chamberlain \email{myrmecocystus@gmail.com}
+}
 \keyword{package}
 
