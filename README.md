@@ -322,6 +322,10 @@ assemble(out)
 #> 6    Poales    Poaceae Holodiscus Holodiscus none
 ```
 
+## ToDo
+
+See [our issue tracker](https://github.com/ropensci/binomen/issues) to see what we have planned
+
 ## Meta
 
 * Please [report any issues or bugs](https://github.com/ropensci/binomen/issues).
