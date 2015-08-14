@@ -10,6 +10,14 @@ binomen
 
 It is sort of a companion to [taxize](https://github.com/ropensci/taxize), where you can get taxonomic data on taxonomic names from the web.
 
+The classes (S3):
+
+* `taxon`
+* `taxonref`
+* `taxonrefs`
+* `binomial`
+* `classification`
+
 The verbs:
 
 * `gethier()` - get hierarchy from a `taxon` class
