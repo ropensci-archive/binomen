@@ -4,6 +4,7 @@ binomen
 
 
 [![Build Status](https://api.travis-ci.org/ropensci/binomen.png)](https://travis-ci.org/ropensci/binomen)
+[![codecov.io](http://codecov.io/github/ropensci/binomen/coverage.svg?branch=master)](http://codecov.io/github/ropensci/binomen?branch=master)
 
 `binomen` provides various taxonomic classes for defining a single taxon, multiple taxa, and a taxonomic data.frame
 
