@@ -40,7 +40,7 @@ print.binomial <- function(x, ...){
   cat(paste0("  authority: ", x$authority), sep = "\n")
 }
 
-#' An S4 class to represent a taxonomic reference
+#' A class to represent a taxonomic reference
 #'
 #' @export
 #' @param rank (character) Taxonomic rank
@@ -50,9 +50,9 @@ print.binomial <- function(x, ...){
 #' @examples
 #' taxonref("genus", "Poa", 56, "http://scottchamberlain.info/")
 taxonref <- function(rank="none", name="none", id="none", uri="none"){
-  res <- list(rank=rank, name=name, id=as.character(id), uri=uri)
+  res <- list(rank = rank, name = name, id = as.character(id), uri = uri)
   check_type(res, "character")
-  structure(res, class="taxonref")
+  structure(res, class = "taxonref")
 }
 
 #' @export
@@ -64,7 +64,7 @@ print.taxonref <- function(x, ...){
   cat(paste0("  uri: ", x$uri), sep = "\n")
 }
 
-#' An S4 class to represent a list of taxonomic references
+#' A class to represent a list of taxonomic references
 #'
 #' @export
 #' @param ... One or more taxonref objects
@@ -75,12 +75,15 @@ print.taxonref <- function(x, ...){
 taxonrefs <- function(...){
   res <- list(...)
   check_type(res, "taxonref")
-  structure(res, class="taxonrefs")
+  structure(res, class = "taxonrefs")
 }
 
 check_type <- function(x, type){
   resis <- sapply(x, class)
-  if(any(resis != type)) stop(sprintf("One or more inputs was not of class %s", type), call. = FALSE)
+  if (any(resis != type)) {
+    stop(sprintf("One or more inputs was not of class %s", type),
+         call. = FALSE)
+  }
 }
 
 #' An S4 class to represent a taxonomic classification
@@ -154,7 +157,7 @@ print.classification <- function(x, ...){
   }
 }
 
-#' An S4 class to represent a single taxon
+#' A class to represent a single taxon
 #'
 #' @export
 #' @param binomial A binomial name
@@ -180,7 +183,7 @@ print.taxon <- function(x, ...){
   }
 }
 
-#' An S4 class to represent a list of taxa
+#' A class to represent a list of taxa
 #'
 #' @export
 #' @param ... An object of class taxon
