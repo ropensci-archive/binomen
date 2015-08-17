@@ -1,7 +1,7 @@
 context("taxon")
 
 bin <- binomial("Poa", "annua", authority="L.")
-class <- classification(kingdom=taxonref("kingdom", "Plantae"),
+class <- grouping(kingdom=taxonref("kingdom", "Plantae"),
                         species=taxonref("family", "Poaceae"))
 
 test_that("taxon basic functionality works", {
@@ -9,14 +9,14 @@ test_that("taxon basic functionality works", {
 
   expect_is(aa, "taxon")
   expect_is(aa$binomial, "binomial")
-  expect_is(aa$classification, "classification")
-  expect_is(aa$classification$kingdom, "taxonref")
-  expect_is(aa$classification$species, "taxonref")
-  expect_is(aa$classification$species$rank, "character")
+  expect_is(aa$grouping, "grouping")
+  expect_is(aa$grouping$kingdom, "taxonref")
+  expect_is(aa$grouping$species, "taxonref")
+  expect_is(aa$grouping$species$rank, "character")
 
   expect_equal(length(aa), 2)
   expect_equal(length(aa$binomial), 3)
-  expect_equal(length(aa$classification), 2)
+  expect_equal(length(aa$grouping), 2)
 })
 
 test_that("taxon fails well", {
@@ -27,7 +27,7 @@ test_that("taxon fails well", {
   expect_error(taxon("34435", 55666),
                "One or more inputs was not of class binomial")
   expect_error(taxon(bin, 55666),
-               "One or more inputs was not of class classification")
+               "One or more inputs was not of class grouping")
   expect_error(taxon(23434, class),
                "One or more inputs was not of class binomial")
 })

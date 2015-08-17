@@ -1,10 +1,10 @@
-context("classification")
+context("grouping")
 
-test_that("classification basic functionality works", {
-  aa <- classification(kingdom=taxonref("kingdom", "Animalia"),
+test_that("grouping basic functionality works", {
+  aa <- grouping(kingdom=taxonref("kingdom", "Animalia"),
                        species=taxonref("species", "Homo sapiens"))
 
-  expect_is(aa, "classification")
+  expect_is(aa, "grouping")
   expect_is(aa$kingdom, "taxonref")
   expect_is(aa$species, "taxonref")
 
@@ -17,11 +17,11 @@ test_that("classification basic functionality works", {
   expect_equal(length(aa$kingdom), 4)
 })
 
-test_that("classification fails well", {
-  expect_equal(length(classification()), 0)
-  expect_error(classification(stuff = 5), "unused argument")
-  expect_error(classification(kingdom = "stuff"),
+test_that("grouping fails well", {
+  expect_equal(length(grouping()), 0)
+  expect_error(grouping(stuff = 5), "unused argument")
+  expect_error(grouping(kingdom = "stuff"),
                "One or more inputs was not of class taxonref")
-  expect_error(classification(division = "stuff"),
+  expect_error(grouping(division = "stuff"),
                "One or more inputs was not of class taxonref")
 })
