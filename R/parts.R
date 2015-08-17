@@ -24,7 +24,7 @@ name <- function(.data) {
 #' @export
 #' @rdname parts
 name.taxon <- function(.data) {
-  pluck(.data$classification, "name", "")
+  pluck(.data$grouping, "name", "")
 }
 
 #' @export
@@ -43,7 +43,7 @@ uri <- function(.data) {
 #' @export
 #' @rdname parts
 uri.taxon <- function(.data) {
-  pluck(.data$classification, "uri", "")
+  pluck(.data$grouping, "uri", "")
 }
 
 #' @export
@@ -62,7 +62,7 @@ rank <- function(.data) {
 #' @export
 #' @rdname parts
 rank.taxon <- function(.data) {
-  pluck(.data$classification, "rank", "")
+  pluck(.data$grouping, "rank", "")
 }
 
 #' @export
@@ -81,7 +81,7 @@ id <- function(.data) {
 #' @export
 #' @rdname parts
 id.taxon <- function(.data) {
-  pluck(.data$classification, "id", "")
+  pluck(.data$grouping, "id", "")
 }
 
 #' @export

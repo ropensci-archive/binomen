@@ -8,7 +8,7 @@
 #'  \item \strong{binomial} - A binomial, via \code{\link{binomial}}
 #'  \item \strong{taxonref} - A single taxonref, via \code{\link{taxonref}}
 #'  \item \strong{taxonrefs} - A list of taxonrefs, via \code{\link{taxonrefs}}
-#'  \item \strong{classification} - A classification object, via \code{\link{classification}}
+#'  \item \strong{grouping} - A grouping (classification) object, via \code{\link{grouping}}
 #'  \item \strong{taxon} - A taxon, via \code{\link{taxon}}
 #'  \item \strong{taxa} - List of taxon objects, via \code{\link{taxa}}
 #' }
@@ -93,7 +93,7 @@ check_one_type <- function(x, type){
   }
 }
 
-#' An S4 class to represent a taxonomic classification
+#' A class to represent a taxonomic classification
 #'
 #' @export
 #' @param kingdom A kingdom name
@@ -132,9 +132,9 @@ check_one_type <- function(x, type){
 #' @param subform A subform name
 #' @param unspecified A unspecified name
 #' @examples
-#' classification(kingdom=taxonref("kingdom", "Animalia"),
+#' grouping(kingdom=taxonref("kingdom", "Animalia"),
 #'                species=taxonref("species", "Homo sapiens"))
-classification <- function(kingdom=NULL,subkingdom=NULL,infrakingdom=NULL,division=NULL,
+grouping <- function(kingdom=NULL,subkingdom=NULL,infrakingdom=NULL,division=NULL,
   phylum=NULL,subdivision=NULL,infradavision=NULL,superclass=NULL,clazz=NULL,subclass=NULL,
   infraclass=NULL,superorder=NULL,order=NULL,suborder=NULL,infraorder=NULL,superfamily=NULL,
   family=NULL,subfamily=NULL,tribe=NULL,subtribe=NULL,genus=NULL,subgenus=NULL,section=NULL,
@@ -152,14 +152,14 @@ classification <- function(kingdom=NULL,subkingdom=NULL,infrakingdom=NULL,divisi
     variety=variety,race=race,subvariety=subvariety,stirp=stirp,
     morph=morph,form=form,aberration=aberration,subform=subform,unspecified=unspecified))
   check_type(res, "taxonref")
-  structure(res, class="classification")
+  structure(res, class = "grouping")
 }
 
 #' @export
-print.classification <- function(x, ...){
-  cat("<classification>", sep = "\n")
+print.grouping <- function(x, ...){
+  cat("<grouping>", sep = "\n")
   clss <- x[x != "none"]
-  for(i in seq_along(clss)){
+  for (i in seq_along(clss)) {
     cat(sprintf("  %s: %s", clss[[i]]$rank, clss[[i]]$name), sep = "\n")
   }
 }
@@ -168,16 +168,16 @@ print.classification <- function(x, ...){
 #'
 #' @export
 #' @param binomial A binomial name
-#' @param classification A classification object
+#' @param grouping A grouping object
 #' @examples
 #' bin <- binomial("Poa", "annua", authority="L.")
-#' class <- classification(kingdom=taxonref("kingdom", "Plantae"),
+#' class <- grouping(kingdom=taxonref("kingdom", "Plantae"),
 #'    species=taxonref("family", "Poaceae"))
 #' taxon(bin, class)
-taxon <- function(binomial, classification){
+taxon <- function(binomial, grouping){
   check_one_type(binomial, "binomial")
-  check_one_type(classification, "classification")
-  res <- list(binomial = binomial, classification = classification)
+  check_one_type(grouping, "grouping")
+  res <- list(binomial = binomial, grouping = grouping)
   structure(res, class = "taxon")
 }
 
@@ -185,9 +185,9 @@ taxon <- function(binomial, classification){
 print.taxon <- function(x, ...){
   cat("<taxon>", sep = "\n")
   cat(sprintf("  binomial: %s %s", x$binomial$genus, x$binomial$epithet), sep = "\n")
-  cat("  classification: ", sep = "\n")
-  clss <- x$classification[x$classification != "none"]
-  for(i in seq_along(clss)){
+  cat("  grouping: ", sep = "\n")
+  clss <- x$grouping[x$grouping != "none"]
+  for (i in seq_along(clss)) {
     cat(sprintf("    %s: %s", clss[[i]]$rank, clss[[i]]$name), sep = "\n")
   }
 }
@@ -198,13 +198,13 @@ print.taxon <- function(x, ...){
 #' @param ... An object of class taxon
 #' @examples
 #' bin <- binomial("Poa", "annua", authority="L.")
-#' class <- classification(kingdom=taxonref("kingdom", "Plantae"),
+#' class <- grouping(kingdom=taxonref("kingdom", "Plantae"),
 #'    species=taxonref("family", "Poaceae"))
 #' taxa(taxon(bin, class), taxon(bin, class))
 taxa <- function(...){
   res <- list(...)
-  for(i in seq_along(res)){
-    if(is(res[[i]], "list")){
+  for (i in seq_along(res)) {
+    if (is(res[[i]], "list")) {
       restmp <- res[i]
       res[[i]] <- NULL
       res <- c(res, unlist(restmp, recursive = FALSE))
@@ -213,5 +213,5 @@ taxa <- function(...){
     }
   }
   check_type(res, "taxon")
-  structure(res, class="taxa")
+  structure(res, class = "taxa")
 }

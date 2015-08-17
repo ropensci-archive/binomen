@@ -57,7 +57,7 @@ assemble <- function(x, ...) {
 #' @export
 #' @rdname scatter
 assemble.taxa <- function(x, ...) {
-  tmp <- lapply(x, "[[", "classification")
+  tmp <- lapply(x, "[[", "grouping")
   x <- as.data.frame(rbind_all(lapply(tmp, function(b){
     data.frame(lapply(b, function(n) setNames(n[['name']], n[['rank']])), stringsAsFactors = FALSE, row.names = NULL)
   })))

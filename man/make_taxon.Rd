@@ -28,8 +28,8 @@ out$binomial
 out$binomial$canonical
 out$binomial$species
 out$binomial$authority
-out$classification
-out$classification$family
+out$grouping
+out$grouping$family
 out \%>\% pick(family) # get a single rank
 out \%>\% span(kingdom, family) # get a range of ranks
 gethier(out) # get hierarchy as data.frame

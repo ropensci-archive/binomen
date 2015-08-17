@@ -51,10 +51,10 @@ span.taxondf <- function(.data, ...) {
 }
 
 taxonparse <- function(w, vars){
-  tmp <- w$classification
+  tmp <- w$grouping
   if(length(vars) != 2) stop("Pass in only two rank names", call. = FALSE)
   check_vars(vars, names(tmp))
   matches <- sapply(vars, grep, x=names(tmp))
-  w$classification <- do.call("classification", tmp[fill_nums(matches)])
+  w$grouping <- do.call("grouping", tmp[fill_nums(matches)])
   return(w)
 }

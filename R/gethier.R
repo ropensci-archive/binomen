@@ -11,7 +11,7 @@
 #' }
 
 gethier <- function(x){
-  tmp <- x$classification
+  tmp <- x$grouping
   nn <- names(tmp)
   vals <- unname(pluck(tmp, "name", "character"))
   data.frame(rank=nn, name=vals, stringsAsFactors = FALSE)

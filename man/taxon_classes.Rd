@@ -13,7 +13,7 @@ The taxonomic classes:
  \item \strong{binomial} - A binomial, via \code{\link{binomial}}
  \item \strong{taxonref} - A single taxonref, via \code{\link{taxonref}}
  \item \strong{taxonrefs} - A list of taxonrefs, via \code{\link{taxonrefs}}
- \item \strong{classification} - A classification object, via \code{\link{classification}}
+ \item \strong{grouping} - A grouping (classification) object, via \code{\link{grouping}}
  \item \strong{taxon} - A taxon, via \code{\link{taxon}}
  \item \strong{taxa} - List of taxon objects, via \code{\link{taxa}}
 }

@@ -4,19 +4,19 @@
 \alias{taxon}
 \title{A class to represent a single taxon}
 \usage{
-taxon(binomial, classification)
+taxon(binomial, grouping)
 }
 \arguments{
 \item{binomial}{A binomial name}
 
-\item{classification}{A classification object}
+\item{grouping}{A grouping object}
 }
 \description{
 A class to represent a single taxon
 }
 \examples{
 bin <- binomial("Poa", "annua", authority="L.")
-class <- classification(kingdom=taxonref("kingdom", "Plantae"),
+class <- grouping(kingdom=taxonref("kingdom", "Plantae"),
    species=taxonref("family", "Poaceae"))
 taxon(bin, class)
 }

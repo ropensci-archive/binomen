@@ -15,8 +15,8 @@
 #' out$binomial$canonical
 #' out$binomial$species
 #' out$binomial$authority
-#' out$classification
-#' out$classification$family
+#' out$grouping
+#' out$grouping$family
 #' out %>% pick(family) # get a single rank
 #' out %>% span(kingdom, family) # get a range of ranks
 #' gethier(out) # get hierarchy as data.frame
@@ -41,6 +41,6 @@ make_taxon <- function(genus="none", epithet="none", authority="none", ...){
   all <- c(output, list(
     genus=taxonref(rank = "genus", name=genus),
     species=taxonref(rank = "species", name=paste(genus, epithet, collapse=" "))))
-  hier <- do.call(classification, all)
-  taxon(binomial=res, classification=hier)
+  hier <- do.call(grouping, all)
+  taxon(binomial=res, grouping=hier)
 }

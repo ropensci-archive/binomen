@@ -14,7 +14,7 @@ A class to represent a list of taxa
 }
 \examples{
 bin <- binomial("Poa", "annua", authority="L.")
-class <- classification(kingdom=taxonref("kingdom", "Plantae"),
+class <- grouping(kingdom=taxonref("kingdom", "Plantae"),
    species=taxonref("family", "Poaceae"))
 taxa(taxon(bin, class), taxon(bin, class))
 }

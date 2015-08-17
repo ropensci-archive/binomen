@@ -39,10 +39,10 @@ pick <- function(.data, ...) {
 
 #' @export
 pick.taxon <- function(.data, ...){
-  tmp <- .data$classification
+  tmp <- .data$grouping
   name <- vars(...)
   taxon(binomial = .data$binomial,
-        classification = do.call("classification", tmp[names(tmp) %in% name]))
+        grouping = do.call("grouping", tmp[names(tmp) %in% name]))
 }
 
 #' @export
