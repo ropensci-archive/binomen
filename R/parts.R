@@ -1,8 +1,13 @@
-#' Pick names
+#' @title Pick out parts by name
+#'
+#' @description This suite of functions act on taxon or taxonref objects,
+#' and pick out object elements by the name of the function.
 #'
 #' @name parts
 #'
-#' @param .data Input, object of class taxon
+#' @param x Input, object of class taxon or taxonref
+#' @param unname (logical) Unname output elements? Ignored when input is of class
+#' \code{taxonref}. Default: \code{TRUE}
 #' @return For \code{taxon} inputs, gives back a \code{taxonref} object. For \code{taxondf}
 #' inputs, gives back \code{taxondf}.
 #' @examples
@@ -13,79 +18,99 @@
 #' out %>% name()
 #' out %>% uri()
 #' out %>% rank()
-#' out %>% id()
+#' out %>% taxonid()
+#'
+#' ## or don't unname the output
+#' out %>% name(unname = FALSE)
+#'
+#' # operating on `taxonref` objects
+#' res <- taxonref("genus", "Poa", 56, "http://scottchamberlain.info/")
+#' res %>% name()
+#' res %>% uri()
+#' res %>% rank()
+#' res %>% taxonid()
 
 #' @export
 #' @rdname parts
-name <- function(.data) {
+name <- function(x, unname = TRUE) {
   UseMethod("name")
 }
 
 #' @export
 #' @rdname parts
-name.taxon <- function(.data) {
-  pluck(.data$grouping, "name", "")
+name.taxon <- function(x, unname = TRUE) {
+  na_me(pluck(x$grouping, "name", ""), unname)
 }
 
 #' @export
 #' @rdname parts
-name.taxonref <- function(.data) {
-  .data$name
+name.taxonref <- function(x, unname = TRUE) {
+  x$name
 }
 
 
 #' @export
 #' @rdname parts
-uri <- function(.data) {
+uri <- function(x, unname = TRUE) {
   UseMethod("uri")
 }
 
 #' @export
 #' @rdname parts
-uri.taxon <- function(.data) {
-  pluck(.data$grouping, "uri", "")
+uri.taxon <- function(x, unname = TRUE) {
+  na_me(pluck(x$grouping, "uri", ""), unname)
 }
 
 #' @export
 #' @rdname parts
-uri.taxonref <- function(.data) {
-  .data$uri
+uri.taxonref <- function(x, unname = TRUE) {
+  x$uri
 }
 
 
 #' @export
 #' @rdname parts
-rank <- function(.data) {
+rank <- function(x, unname = TRUE) {
   UseMethod("rank")
 }
 
 #' @export
 #' @rdname parts
-rank.taxon <- function(.data) {
-  pluck(.data$grouping, "rank", "")
+rank.taxon <- function(x, unname = TRUE) {
+  na_me(pluck(x$grouping, "rank", ""), unname)
 }
 
 #' @export
 #' @rdname parts
-rank.taxonref <- function(.data) {
-  .data$uri
+rank.taxonref <- function(x, unname = TRUE) {
+  x$uri
 }
 
 
 #' @export
 #' @rdname parts
-id <- function(.data) {
-  UseMethod("id")
+taxonid <- function(x, unname = TRUE) {
+  UseMethod("taxonid")
 }
 
 #' @export
 #' @rdname parts
-id.taxon <- function(.data) {
-  pluck(.data$grouping, "id", "")
+taxonid.taxon <- function(x, unname = TRUE) {
+  na_me(pluck(x$grouping, "id", ""), unname)
 }
 
 #' @export
 #' @rdname parts
-id.taxonref <- function(.data) {
-  .data$uri
+taxonid.taxonref <- function(x, unname = TRUE) {
+  x$id
+}
+
+
+# helper fxns --------------
+na_me <- function(x, z) {
+  if (z) {
+    unname(x)
+  } else {
+    x
+  }
 }
