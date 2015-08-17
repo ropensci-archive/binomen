@@ -23,7 +23,7 @@ The classes (S3):
 * `taxonref`
 * `taxonrefs`
 * `binomial`
-* `classification`
+* `grouping` (i.e., classification)
 
 The verbs:
 
@@ -56,7 +56,7 @@ Make a taxon object
 
 ```{r}
 (obj <- make_taxon(genus="Poa", epithet="annua", authority="L.",
-                   family='Poaceae', clazz='Poales', kingdom='Plantae', variety='annua'))
+  family='Poaceae', clazz='Poales', kingdom='Plantae', variety='annua'))
 ```
 
 Index to various parts of the object
@@ -76,13 +76,13 @@ obj$binomial$authority
 The classification
 
 ```{r}
-obj$classification
+obj$grouping
 ```
 
 The family
 
 ```{r}
-obj$classification$family
+obj$grouping$family
 ```
 
 ## Subset taxon objects
@@ -119,9 +119,9 @@ Make one
 
 ```{r}
 df <- data.frame(order=c('Asterales','Asterales','Fagales','Poales','Poales','Poales'),
-                family=c('Asteraceae','Asteraceae','Fagaceae','Poaceae','Poaceae','Poaceae'),
-                genus=c('Helianthus','Helianthus','Quercus','Poa','Festuca','Holodiscus'),
-                stringsAsFactors = FALSE)
+  family=c('Asteraceae','Asteraceae','Fagaceae','Poaceae','Poaceae','Poaceae'),
+  genus=c('Helianthus','Helianthus','Quercus','Poa','Festuca','Holodiscus'),
+  stringsAsFactors = FALSE)
 (df2 <- taxon_df(df))
 ```
 

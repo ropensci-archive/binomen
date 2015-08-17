@@ -16,7 +16,7 @@ The classes (S3):
 * `taxonref`
 * `taxonrefs`
 * `binomial`
-* `classification`
+* `grouping` (i.e., classification)
 
 The verbs:
 
@@ -52,10 +52,10 @@ Make a taxon object
 
 ```r
 (obj <- make_taxon(genus="Poa", epithet="annua", authority="L.",
-                   family='Poaceae', clazz='Poales', kingdom='Plantae', variety='annua'))
+  family='Poaceae', clazz='Poales', kingdom='Plantae', variety='annua'))
 #> <taxon>
 #>   binomial: Poa annua
-#>   classification: 
+#>   grouping: 
 #>     kingdom: Plantae
 #>     clazz: Poales
 #>     family: Poaceae
@@ -91,8 +91,8 @@ The classification
 
 
 ```r
-obj$classification
-#> <classification>
+obj$grouping
+#> <grouping>
 #>   kingdom: Plantae
 #>   clazz: Poales
 #>   family: Poaceae
@@ -105,7 +105,7 @@ The family
 
 
 ```r
-obj$classification$family
+obj$grouping$family
 #> <taxonref>
 #>   rank: family
 #>   name: Poaceae
@@ -122,12 +122,12 @@ Get one or more ranks via `pick()`
 obj %>% pick(family)
 #> <taxon>
 #>   binomial: Poa annua
-#>   classification: 
+#>   grouping: 
 #>     family: Poaceae
 obj %>% pick(family, genus)
 #> <taxon>
 #>   binomial: Poa annua
-#>   classification: 
+#>   grouping: 
 #>     family: Poaceae
 #>     genus: Poa
 ```
@@ -139,7 +139,7 @@ Drop one or more ranks via `pop()`
 obj %>% pop(family)
 #> <taxon>
 #>   binomial: Poa annua
-#>   classification: 
+#>   grouping: 
 #>     kingdom: Plantae
 #>     clazz: Poales
 #>     genus: Poa
@@ -148,7 +148,7 @@ obj %>% pop(family)
 obj %>% pop(family, genus)
 #> <taxon>
 #>   binomial: Poa annua
-#>   classification: 
+#>   grouping: 
 #>     kingdom: Plantae
 #>     clazz: Poales
 #>     species: Poa annua
@@ -162,7 +162,7 @@ Get a range of ranks via `span()`
 obj %>% span(kingdom, family)
 #> <taxon>
 #>   binomial: Poa annua
-#>   classification: 
+#>   grouping: 
 #>     kingdom: Plantae
 #>     clazz: Poales
 #>     family: Poaceae
@@ -189,9 +189,9 @@ Make one
 
 ```r
 df <- data.frame(order=c('Asterales','Asterales','Fagales','Poales','Poales','Poales'),
-                family=c('Asteraceae','Asteraceae','Fagaceae','Poaceae','Poaceae','Poaceae'),
-                genus=c('Helianthus','Helianthus','Quercus','Poa','Festuca','Holodiscus'),
-                stringsAsFactors = FALSE)
+  family=c('Asteraceae','Asteraceae','Fagaceae','Poaceae','Poaceae','Poaceae'),
+  genus=c('Helianthus','Helianthus','Quercus','Poa','Festuca','Holodiscus'),
+  stringsAsFactors = FALSE)
 (df2 <- taxon_df(df))
 #>       order     family      genus
 #> 1 Asterales Asteraceae Helianthus
@@ -252,7 +252,7 @@ scatter(df2)
 #> [[1]]
 #> <taxon>
 #>   binomial: Helianthus none
-#>   classification: 
+#>   grouping: 
 #>     order: Asterales
 #>     family: Asteraceae
 #>     genus: Helianthus
@@ -261,7 +261,7 @@ scatter(df2)
 #> [[2]]
 #> <taxon>
 #>   binomial: Helianthus none
-#>   classification: 
+#>   grouping: 
 #>     order: Asterales
 #>     family: Asteraceae
 #>     genus: Helianthus
@@ -270,7 +270,7 @@ scatter(df2)
 #> [[3]]
 #> <taxon>
 #>   binomial: Quercus none
-#>   classification: 
+#>   grouping: 
 #>     order: Fagales
 #>     family: Fagaceae
 #>     genus: Quercus
@@ -279,7 +279,7 @@ scatter(df2)
 #> [[4]]
 #> <taxon>
 #>   binomial: Poa none
-#>   classification: 
+#>   grouping: 
 #>     order: Poales
 #>     family: Poaceae
 #>     genus: Poa
@@ -288,7 +288,7 @@ scatter(df2)
 #> [[5]]
 #> <taxon>
 #>   binomial: Festuca none
-#>   classification: 
+#>   grouping: 
 #>     order: Poales
 #>     family: Poaceae
 #>     genus: Festuca
@@ -297,7 +297,7 @@ scatter(df2)
 #> [[6]]
 #> <taxon>
 #>   binomial: Holodiscus none
-#>   classification: 
+#>   grouping: 
 #>     order: Poales
 #>     family: Poaceae
 #>     genus: Holodiscus
