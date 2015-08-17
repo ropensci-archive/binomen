@@ -45,6 +45,5 @@ df2 \%>\% scatter()
 df2
 df2 \%>\% scatter()
 df2 \%>\% scatter() \%>\% assemble
-identical(df2, df2 \%>\% scatter() \%>\% assemble)
 }
 

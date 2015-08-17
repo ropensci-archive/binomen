@@ -13,7 +13,7 @@
 #' df2 %>% pick(genus, tribe)
 
 taxon_df <- function(x){
-  structure(x, class=c('taxondf','data.frame'))
+  structure(x, class = c('taxondf', 'data.frame'))
 }
 
 # setClass("taxonDataFrame", slots = c(data = 'data.frame'))
