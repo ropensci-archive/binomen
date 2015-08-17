@@ -26,7 +26,6 @@
 #' df2
 #' df2 %>% scatter()
 #' df2 %>% scatter() %>% assemble
-#' identical(df2, df2 %>% scatter() %>% assemble)
 scatter <- function(x, ...) {
   UseMethod("scatter")
 }
@@ -34,13 +33,13 @@ scatter <- function(x, ...) {
 #' @export
 scatter.taxondf <- function(x, ...) {
   x <- class2clazz(x)
-  taxa(unname(apply(x, 1, function(y){
+  taxa(unname(apply(x, 1, function(y) {
     do.call("make_taxon", as.list(y))
   })))
 }
 
 class2clazz <- function(x){
-  if("class" %in% names(x)){
+  if ("class" %in% names(x)) {
     names(x)[which(names(x) == "class")] <- "clazz"
     x
   } else {
@@ -58,8 +57,9 @@ assemble <- function(x, ...) {
 #' @rdname scatter
 assemble.taxa <- function(x, ...) {
   tmp <- lapply(x, "[[", "grouping")
-  x <- as.data.frame(rbind_all(lapply(tmp, function(b){
-    data.frame(lapply(b, function(n) setNames(n[['name']], n[['rank']])), stringsAsFactors = FALSE, row.names = NULL)
+  x <- as.data.frame(rbind_all(lapply(tmp, function(b) {
+    data.frame(lapply(b, function(n) setNames(n[['name']], n[['rank']])),
+               stringsAsFactors = FALSE, row.names = NULL)
   })))
   taxon_df(x)
 }

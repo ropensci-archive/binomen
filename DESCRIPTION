@@ -5,8 +5,7 @@ Description: 'Taxonomic' specification and parsing methods.
     functions for combining and separating taxonomic groups by
     any rank or name. Allows standard (SE) and non-standard
     evaluation (NSE).
-Version: 0.0.3.9300
-Date: 2015-08-13
+Version: 0.0.3.9400
 License: MIT + file LICENSE
 Authors@R: person("Scott", "Chamberlain", role = c("aut", "cre"),
     email = "myrmecocystus@gmail.com")
