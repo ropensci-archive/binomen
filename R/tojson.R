@@ -3,7 +3,6 @@
 #' NOT WORKING YET
 #'
 #' @export
-#' @importFrom jsonlite toJSON
 #'
 #' @param input Input object
 #' @param ... Further args passed on to \code{\link[jsonlite]{toJSON}}

@@ -2,7 +2,6 @@
 #'
 #' @description That is, drop them
 #'
-#' @importFrom dplyr select_
 #' @export
 #'
 #' @param .data Input, object of class taxon

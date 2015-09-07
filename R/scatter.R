@@ -1,6 +1,5 @@
 #' Scatter each taxon in a taxondf to a taxon object
 #'
-#' @importFrom dplyr rbind_all
 #' @export
 #'
 #' @param x A taxonomic data.frame

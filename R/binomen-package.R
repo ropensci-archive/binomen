@@ -1,5 +1,8 @@
 #' Taxonomic class specification and parsing methods
 #'
+#' @import lazyeval
+#' @importFrom dplyr select_ rbind_all
+#' @importFrom jsonlite toJSON
 #' @name binomen-package
 #' @aliases binomen
 #' @docType package
