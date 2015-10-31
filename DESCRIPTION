@@ -12,7 +12,6 @@ Authors@R: person("Scott", "Chamberlain", role = c("aut", "cre"),
 URL: https://github.com/ropensci/binomen
 BugReports: https://github.com/ropensci/binomen/issues
 LazyData: yes
-Roxygen: list(wrap = FALSE)
 Imports:
     jsonlite,
     lazyeval,

@@ -39,3 +39,16 @@
 #' df2 %>% span(order, genus)
 #' df2 %>% span(family, genus)
 NULL
+
+#' Lookup-table for IDs of taxonomic ranks
+#'
+#' @name rank_ref
+#' @docType data
+#' @keywords data
+#' @return data.frame with two columns and 34 rows. The two columns:
+#' \itemize{
+#'  \item rankid integer; smaller numbers are higher ranks.
+#'  \item ranks character; rank name. Some rows have more than one name,
+#'  in which the names are considered of equal height.
+#' }
+NULL
