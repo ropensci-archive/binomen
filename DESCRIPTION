@@ -1,10 +1,9 @@
 Package: binomen
 Title: 'Taxonomic' Specification and Parsing Methods
-Description: 'Taxonomic' specification and parsing methods.
-    Includes functions for working with taxonomic data, including
-    functions for combining and separating taxonomic groups by
-    any rank or name. Allows standard (SE) and non-standard
-    evaluation (NSE).
+Description: Includes functions for working with taxonomic data,
+    including functions for combining, separating, and filtering
+    taxonomic groups by any rank or name. Allows standard (SE)
+    and non-standard evaluation (NSE).
 Version: 0.0.5.9000
 License: MIT + file LICENSE
 Authors@R: person("Scott", "Chamberlain", role = c("aut", "cre"),
