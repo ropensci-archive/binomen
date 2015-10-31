@@ -21,4 +21,5 @@ x <- taxonref(rank="species", name="Homo sapiens", id=3454, uri="http://things.c
 as.jsonld(x)
 }
 }
+\keyword{internal}
 
