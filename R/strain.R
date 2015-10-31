@@ -59,15 +59,15 @@ strain_parse <- function(w, vars){
   ids <- unlist(tc(list(id1, id2)))
   switch(vars2[[1]]$operator,
     `<` = {
-      start <- which(rank_ref$rankid == ids) + 1
-      rks <- splitem(rank_ref[seq(start, NROW(rank_ref)), "ranks"])
+      start <- which(rank_table$rankid == ids) + 1
+      rks <- splitem(rank_table[seq(start, NROW(rank_table)), "ranks"])
       matches <- Filter(function(x) length(x) > 0, sapply(rks, grep, x = names(grps)))
       w$grouping <- do.call("grouping", grps[names(matches)])
       return(w)
     },
     `>` = {
-      start <- which(rank_ref$rankid == ids)
-      rks <- splitem(rank_ref[seq(1, start), "ranks"])
+      start <- which(rank_table$rankid == ids)
+      rks <- splitem(rank_table[seq(1, start), "ranks"])
       matches <- Filter(function(x) length(x) > 0, sapply(rks, grep, x = names(grps)))
       w$grouping <- do.call("grouping", grps[names(matches)])
       return(w)
@@ -86,14 +86,14 @@ rankid_get <- function(x) {
   if (x == ".") {
     NULL
   } else {
-    rank_ref[rank_ref$ranks %in% x, "rankid"]
+    rank_table[rank_table$ranks %in% x, "rankid"]
   }
 }
 
 ranks_poss <- function() {
   sort(
     unique(
-      do.call(c, sapply(rank_ref$ranks, strsplit, split = ",", USE.NAMES = FALSE))
+      do.call(c, sapply(rank_table$ranks, strsplit, split = ",", USE.NAMES = FALSE))
       )
   )
 }

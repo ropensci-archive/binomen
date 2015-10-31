@@ -42,7 +42,7 @@ NULL
 
 #' Lookup-table for IDs of taxonomic ranks
 #'
-#' @name rank_ref
+#' @name rank_table
 #' @docType data
 #' @keywords data
 #' @return data.frame with two columns and 34 rows. The two columns:
