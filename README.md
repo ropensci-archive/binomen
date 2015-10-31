@@ -187,9 +187,9 @@ Make one
 
 
 ```r
-df <- data.frame(order=c('Asterales','Asterales','Fagales','Poales','Poales','Poales'),
-  family=c('Asteraceae','Asteraceae','Fagaceae','Poaceae','Poaceae','Poaceae'),
-  genus=c('Helianthus','Helianthus','Quercus','Poa','Festuca','Holodiscus'),
+df <- data.frame(order = c('Asterales','Asterales','Fagales','Poales','Poales','Poales'),
+  family = c('Asteraceae','Asteraceae','Fagaceae','Poaceae','Poaceae','Poaceae'),
+  genus = c('Helianthus','Helianthus','Quercus','Poa','Festuca','Holodiscus'),
   stringsAsFactors = FALSE)
 (df2 <- taxon_df(df))
 #>       order     family      genus
@@ -330,5 +330,6 @@ See [our issue tracker](https://github.com/ropensci/binomen/issues) to see what 
 * Please [report any issues or bugs](https://github.com/ropensci/binomen/issues).
 * License: MIT
 * Get citation information for `binomen` in R doing `citation(package = 'binomen')`
+* Please note that this project is released with a [Contributor Code of Conduct](CONDUCT.md). By participating in this project you agree to abide by its terms.
 
 [![ropensci](http://ropensci.org/public_images/github_footer.png)](http://ropensci.org)
