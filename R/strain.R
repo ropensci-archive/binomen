@@ -29,7 +29,7 @@ strain <- function(.data, ...) {
 #' @export
 strain.taxon <- function(.data, ...) {
   tmp <- va_rs(.data, ...)
-  taxonparse(w = .data, vars = tmp)
+  strain_parse(w = .data, vars = tmp)
 }
 
 va_rs <- function(.data, ...) {
@@ -51,7 +51,7 @@ va_rs_ <- function(.data, ..., .dots) {
 #   .data[fill_nums(matches)]
 # }
 
-taxonparse <- function(w, vars){
+strain_parse <- function(w, vars){
   grps <- w$grouping
   vars2 <- make_vars(vars)
   id1 <- rankid_get(vars2[[1]]$lower)
