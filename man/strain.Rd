@@ -33,15 +33,9 @@ Example predicates:
 # operating on `taxon` objects
 out <- make_taxon(genus="Poa", epithet="annua", authority="L.",
    family='Poaceae', clazz='Poales', kingdom='Plantae', variety='annua')
-out \%>\% va_rs(. < genus)
-
-# operating on taxonomic data.frames
-df <- data.frame(class=c('Magnoliopsida','Magnoliopsida','Magnoliopsida',
-                         'Magnoliopsida','Magnoliopsida','Magnoliopsida'),
-         order=c('Asterales','Asterales','Fagales','Poales','Poales','Poales'),
-         family=c('Asteraceae','Asteraceae','Fagaceae','Poaceae','Poaceae','Poaceae'),
-         genus=c('Helianthus','Helianthus','Quercus','Poa','Festuca','Holodiscus'),
-         stringsAsFactors = FALSE)
-(df2 <- taxon_df(df))
+out \%>\% strain(. < family)
+out \%>\% strain(. < genus)
+out \%>\% strain(. > family)
+out \%>\% strain(. < family)
 }
 

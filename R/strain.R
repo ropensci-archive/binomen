@@ -18,66 +18,86 @@
 #' # operating on `taxon` objects
 #' out <- make_taxon(genus="Poa", epithet="annua", authority="L.",
 #'    family='Poaceae', clazz='Poales', kingdom='Plantae', variety='annua')
-#' out %>% va_rs(. < genus)
-#'
-#' # operating on taxonomic data.frames
-#' df <- data.frame(class=c('Magnoliopsida','Magnoliopsida','Magnoliopsida',
-#'                          'Magnoliopsida','Magnoliopsida','Magnoliopsida'),
-#'          order=c('Asterales','Asterales','Fagales','Poales','Poales','Poales'),
-#'          family=c('Asteraceae','Asteraceae','Fagaceae','Poaceae','Poaceae','Poaceae'),
-#'          genus=c('Helianthus','Helianthus','Quercus','Poa','Festuca','Holodiscus'),
-#'          stringsAsFactors = FALSE)
-#' (df2 <- taxon_df(df))
+#' out %>% strain(. < family)
+#' out %>% strain(. < genus)
+#' out %>% strain(. > family)
+#' out %>% strain(. < family)
 strain <- function(.data, ...) {
   UseMethod("strain")
 }
 
 #' @export
 strain.taxon <- function(.data, ...) {
-  va_rs(.data, .dots = lazyeval::lazy_dots(...))
-  # taxonparse(.data, var)
+  tmp <- va_rs(.data, ...)
+  taxonparse(w = .data, vars = tmp)
 }
 
 va_rs <- function(.data, ...) {
   va_rs_(.data, .dots = lazyeval::lazy_dots(...))
-  # taxonparse(.data, var)
 }
 
 va_rs_ <- function(.data, ..., .dots) {
-  tmp <- lazyeval::all_dots(.dots, ...)
-  taxonparse(w = .data, vars = tmp)
+  lazyeval::all_dots(.dots, ...)
 }
 
-#' @export
-strain.taxa <- function(.data, ...) {
-  lapply(.data, span, ...)
-}
-
-#' @export
-strain.taxondf <- function(.data, ...) {
-  var <- vars(...)
-  check_vars(var, names(.data))
-  matches <- sapply(var, grep, x = names(.data))
-  .data[fill_nums(matches)]
-}
+# strain.taxa <- function(.data, ...) {
+#   lapply(.data, span, ...)
+# }
+#
+# strain.taxondf <- function(.data, ...) {
+#   var <- vars(...)
+#   check_vars(var, names(.data))
+#   matches <- sapply(var, grep, x = names(.data))
+#   .data[fill_nums(matches)]
+# }
 
 taxonparse <- function(w, vars){
-  tmp <- w$grouping
+  grps <- w$grouping
   vars2 <- make_vars(vars)
-  matches <- sapply(vars, grep, x = names(tmp))
-  w$grouping <- do.call("grouping", tmp[fill_nums(matches)])
-  return(w)
+  id1 <- rankid_get(vars2[[1]]$lower)
+  id2 <- rankid_get(vars2[[1]]$upper)
+  ids <- unlist(tc(list(id1, id2)))
+  switch(vars2[[1]]$operator,
+    `<` = {
+      start <- which(rank_ref$rankid == ids) + 1
+      rks <- splitem(rank_ref[seq(start, NROW(rank_ref)), "ranks"])
+      matches <- Filter(function(x) length(x) > 0, sapply(rks, grep, x = names(grps)))
+      w$grouping <- do.call("grouping", grps[names(matches)])
+      return(w)
+    },
+    `>` = {
+      start <- which(rank_ref$rankid == ids)
+      rks <- splitem(rank_ref[seq(1, start), "ranks"])
+      matches <- Filter(function(x) length(x) > 0, sapply(rks, grep, x = names(grps)))
+      w$grouping <- do.call("grouping", grps[names(matches)])
+      return(w)
+    }
+  )
 }
 
 make_vars <- function(x) {
   lapply(x, function(z) {
-    as.list(setNames(strsplit(deparse(z$expr), "\\s+")[[1]],
+    as.list(setNames(tolower(strsplit(deparse(z$expr), "\\s+")[[1]]),
              c('lower', 'operator', 'upper')))
   })
 }
 
+rankid_get <- function(x) {
+  if (x == ".") {
+    NULL
+  } else {
+    rank_ref[rank_ref$ranks %in% x, "rankid"]
+  }
+}
 
-# poss_ranks <- unique(do.call(c, sapply(rank_ref$ranks, strsplit, split=",", USE.NAMES = FALSE)))
-# downto <- match.arg(downto, choices = poss_ranks)
-# torank <- sapply(rank_ref[grep(downto, rank_ref$ranks),"ranks"],
-#                  function(x) strsplit(x, ",")[[1]][[1]], USE.NAMES=FALSE)
+ranks_poss <- function() {
+  sort(
+    unique(
+      do.call(c, sapply(rank_ref$ranks, strsplit, split = ",", USE.NAMES = FALSE))
+      )
+  )
+}
+
+splitem <- function(x) {
+  unlist(sapply(x, function(z) strsplit(z, ",")[[1]], USE.NAMES = FALSE))
+}

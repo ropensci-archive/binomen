@@ -11,6 +11,7 @@ Authors@R: person("Scott", "Chamberlain", role = c("aut", "cre"),
     email = "myrmecocystus@gmail.com")
 URL: https://github.com/ropensci/binomen
 BugReports: https://github.com/ropensci/binomen/issues
+LazyLoad: yes
 LazyData: yes
 Imports:
     jsonlite,

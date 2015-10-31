@@ -5,7 +5,7 @@
 \alias{rank_ref}
 \title{Lookup-table for IDs of taxonomic ranks}
 \value{
-data.frame with two columns and 34 rows
+data.frame with two columns and 34 rows. The two columns:
 \itemize{
  \item rankid integer; smaller numbers are higher ranks.
  \item ranks character; rank name. Some rows have more than one name,
