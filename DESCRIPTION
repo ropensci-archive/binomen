@@ -21,3 +21,4 @@ Suggests:
     testthat,
     knitr,
     taxize
+RoxygenNote: 5.0.1

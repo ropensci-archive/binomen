@@ -20,7 +20,7 @@ test_that("operating on taxon objects", {
   expect_is(bb$grouping$genus, "taxonref")
   expect_equal(names(bb$grouping), "genus")
 
-  expect_is(c, "taxon")
+  expect_is(cc, "taxon")
   expect_is(cc$binomial, "binomial")
   expect_is(cc$grouping, "grouping")
   expect_is(cc$grouping$genus, "taxonref")
