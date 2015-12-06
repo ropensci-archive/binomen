@@ -1,7 +1,6 @@
 #' Pick names
 #'
 #' @export
-#'
 #' @param .data Input, object of class taxon
 #' @param ... Further unnamed args, see examples
 #' @return For \code{taxon} inputs, gives back a \code{taxonref} object. For \code{taxondf}
