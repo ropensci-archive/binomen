@@ -49,6 +49,13 @@ print.binomial <- function(x, ...){
 #' @param uri (character) Source of name
 #' @examples
 #' taxonref("genus", "Poa", 56, "http://scottchamberlain.info/")
+#'
+#' # many names input
+#' splist <- c('Litsea bindoniana', 'Rubus ghanakantae', 'Desmanthus palmeri',
+#'  'Leptinella longipes', 'Asarum sakawanum', 'Cistanche compacta',
+#'  'Ormosia nanningensis', 'Claoxylon physocarpum', 'Hedycarya arborea',
+#'  'Hypnum gracile')
+#' lapply(splist, function(x) taxonref("species", name = x))
 taxonref <- function(rank="none", name="none", id="none", uri="none"){
   res <- list(rank = rank, name = name, id = as.character(id), uri = uri)
   check_type(res, "character")
@@ -174,6 +181,13 @@ print.grouping <- function(x, ...){
 #' class <- grouping(kingdom=taxonref("kingdom", "Plantae"),
 #'    species=taxonref("family", "Poaceae"))
 #' taxon(bin, class)
+#'
+#' # many names input
+#' splist <- c('Litsea bindoniana', 'Rubus ghanakantae', 'Desmanthus palmeri',
+#'  'Leptinella longipes', 'Asarum sakawanum', 'Cistanche compacta',
+#'  'Ormosia nanningensis', 'Claoxylon physocarpum', 'Hedycarya arborea',
+#'  'Hypnum gracile')
+#' lapply(splist, binomial)
 taxon <- function(binomial, grouping){
   check_one_type(binomial, "binomial")
   check_one_type(grouping, "grouping")

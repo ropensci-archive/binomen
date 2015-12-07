@@ -24,7 +24,7 @@ The classes (S3):
 * `taxonref`
 * `taxonrefs`
 * `binomial`
-* `grouping` (i.e., classification)
+* `grouping` (i.e., classification - used different term to avoid conflict with classification in `taxize`)
 
 The verbs:
 

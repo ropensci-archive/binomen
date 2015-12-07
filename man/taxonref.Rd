@@ -20,5 +20,12 @@ A class to represent a taxonomic reference
 }
 \examples{
 taxonref("genus", "Poa", 56, "http://scottchamberlain.info/")
+
+# many names input
+splist <- c('Litsea bindoniana', 'Rubus ghanakantae', 'Desmanthus palmeri',
+ 'Leptinella longipes', 'Asarum sakawanum', 'Cistanche compacta',
+ 'Ormosia nanningensis', 'Claoxylon physocarpum', 'Hedycarya arborea',
+ 'Hypnum gracile')
+lapply(splist, function(x) taxonref("species", name = x))
 }
 

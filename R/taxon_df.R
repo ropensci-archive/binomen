@@ -15,9 +15,3 @@
 taxon_df <- function(x){
   structure(x, class = c('taxondf', 'data.frame'))
 }
-
-# setClass("taxonDataFrame", slots = c(data = 'data.frame'))
-# setMethod("[", "taxonDataFrame", function(x, i, j, ...){
-#   tmp <- x@data
-#   tmp[ tmp[[i]] %in% j, ]
-# })

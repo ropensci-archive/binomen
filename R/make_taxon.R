@@ -20,6 +20,20 @@
 #' out %>% pick(family) # get a single rank
 #' out %>% span(kingdom, family) # get a range of ranks
 #' gethier(out) # get hierarchy as data.frame
+#'
+#' # Using dplyr
+#' df <- data.frame(class=c('Magnoliopsida','Magnoliopsida','Magnoliopsida',
+#'    'Magnoliopsida','Magnoliopsida','Magnoliopsida'),
+#'  order=c('Asterales','Asterales','Fagales','Poales','Poales','Poales'),
+#'  family=c('Asteraceae','Asteraceae','Fagaceae','Poaceae','Poaceae','Poaceae'),
+#'  genus=c('Helianthus','Helianthus','Quercus','Poa','Festuca','Holodiscus'),
+#'  species=c('annuus','petrus','kellog','annua','arundinaceae','fava'),
+#'  stringsAsFactors = FALSE)
+#'
+#' xx <- df %>% rowwise()
+#' xx %>% do(i = strain(make_taxon(.$species, genus = .$genus), . < family)) %>% .[[1]]
+#' xx %>% do(i = strain(make_taxon(.$species, genus = .$genus), . < genus)) %>% .[[1]]
+#' xx %>% do(i = strain(make_taxon(.$species, genus = .$genus), . < species)) %>% .[[1]]
 #' }
 
 make_taxon <- function(genus="none", epithet="none", authority="none", ...){

@@ -19,5 +19,12 @@ bin <- binomial("Poa", "annua", authority="L.")
 class <- grouping(kingdom=taxonref("kingdom", "Plantae"),
    species=taxonref("family", "Poaceae"))
 taxon(bin, class)
+
+# many names input
+splist <- c('Litsea bindoniana', 'Rubus ghanakantae', 'Desmanthus palmeri',
+ 'Leptinella longipes', 'Asarum sakawanum', 'Cistanche compacta',
+ 'Ormosia nanningensis', 'Claoxylon physocarpum', 'Hedycarya arborea',
+ 'Hypnum gracile')
+lapply(splist, binomial)
 }
 
