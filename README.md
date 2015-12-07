@@ -5,10 +5,11 @@ binomen
 
 [![Build Status](https://api.travis-ci.org/ropensci/binomen.png)](https://travis-ci.org/ropensci/binomen)
 [![codecov.io](http://codecov.io/github/ropensci/binomen/coverage.svg?branch=master)](http://codecov.io/github/ropensci/binomen?branch=master)
+[![rstudio mirror downloads](http://cranlogs.r-pkg.org/badges/binomen?color=E664A4)](https://github.com/metacran/cranlogs.app)
 
 `binomen` provides various taxonomic classes for defining a single taxon, multiple taxa, and a taxonomic data.frame
 
-It is sort of a companion to [taxize](https://github.com/ropensci/taxize), where you can get taxonomic data on taxonomic names from the web.
+It is designed as a companion to [taxize](https://github.com/ropensci/taxize), where you can get taxonomic data on taxonomic names from the web.
 
 The classes (S3):
 
