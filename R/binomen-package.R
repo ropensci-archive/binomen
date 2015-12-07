@@ -1,5 +1,7 @@
 #' Taxonomic class specification and parsing methods
 #'
+#' @importFrom methods is
+#' @importFrom stats setNames
 #' @import lazyeval
 #' @importFrom dplyr select_ rbind_all
 #' @importFrom jsonlite toJSON

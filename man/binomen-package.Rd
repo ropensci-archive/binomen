@@ -9,6 +9,8 @@
 Taxonomic class specification and parsing methods
 }
 \examples{
+library("binomen")
+
 # operating on `taxon` objects
 out <- make_taxon(genus="Poa", epithet="annua", authority="L.",
    family='Poaceae', clazz='Poales', kingdom='Plantae', variety='annua')
