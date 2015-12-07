@@ -26,6 +26,7 @@ The verbs:
 * `pick()` - pick out one or more taxonomic groups
 * `pop()` - pop out (drop) one or more taxonomic groups
 * `span()` - pick a range between two taxonomic groups (inclusive)
+* `strain()` - filter by taxonomic groups, like dplyr's filter
 * `name()` - get the taxon name for each `taxonref` object
 * `uri()` - get the reference uri for each `taxonref` object
 * `rank()` - get the taxonomic rank for each `taxonref` object
