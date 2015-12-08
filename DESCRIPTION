@@ -4,7 +4,7 @@ Description: Includes functions for working with taxonomic data,
     including functions for combining, separating, and filtering
     taxonomic groups by any rank or name. Allows standard (SE)
     and non-standard evaluation (NSE).
-Version: 0.1.0
+Version: 0.1.0.9000
 License: MIT + file LICENSE
 Authors@R: person("Scott", "Chamberlain", role = c("aut", "cre"),
     email = "myrmecocystus@gmail.com")
