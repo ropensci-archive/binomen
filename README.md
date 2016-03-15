@@ -12,7 +12,7 @@ binomen
 
 It is designed as a companion to [taxize](https://github.com/ropensci/taxize), where you can get taxonomic data on taxonomic names from the web.
 
-The classes (S3):
+### classes (S3)
 
 * `taxon`
 * `taxonref`
@@ -20,7 +20,7 @@ The classes (S3):
 * `binomial`
 * `grouping` (i.e., classification - used different term to avoid conflict with classification in `taxize`)
 
-The verbs:
+### verbs
 
 * `gethier()` - get hierarchy from a `taxon` class
 * `scatter()` - make each row in taxonomic data.frame (`taxondf`) a separate `taxon` object within a single `taxa` object
@@ -57,7 +57,7 @@ Make a taxon object
   family='Poaceae', clazz='Poales', kingdom='Plantae', variety='annua'))
 #> <taxon>
 #>   binomial: Poa annua
-#>   grouping: 
+#>   grouping:
 #>     kingdom: Plantae
 #>     clazz: Poales
 #>     family: Poaceae
@@ -124,12 +124,12 @@ Get one or more ranks via `pick()`
 obj %>% pick(family)
 #> <taxon>
 #>   binomial: Poa annua
-#>   grouping: 
+#>   grouping:
 #>     family: Poaceae
 obj %>% pick(family, genus)
 #> <taxon>
 #>   binomial: Poa annua
-#>   grouping: 
+#>   grouping:
 #>     family: Poaceae
 #>     genus: Poa
 ```
@@ -141,7 +141,7 @@ Drop one or more ranks via `pop()`
 obj %>% pop(family)
 #> <taxon>
 #>   binomial: Poa annua
-#>   grouping: 
+#>   grouping:
 #>     kingdom: Plantae
 #>     clazz: Poales
 #>     genus: Poa
@@ -150,7 +150,7 @@ obj %>% pop(family)
 obj %>% pop(family, genus)
 #> <taxon>
 #>   binomial: Poa annua
-#>   grouping: 
+#>   grouping:
 #>     kingdom: Plantae
 #>     clazz: Poales
 #>     species: Poa annua
@@ -164,7 +164,7 @@ Get a range of ranks via `span()`
 obj %>% span(kingdom, family)
 #> <taxon>
 #>   binomial: Poa annua
-#>   grouping: 
+#>   grouping:
 #>     kingdom: Plantae
 #>     clazz: Poales
 #>     family: Poaceae
@@ -254,57 +254,57 @@ scatter(df2)
 #> [[1]]
 #> <taxon>
 #>   binomial: Helianthus none
-#>   grouping: 
+#>   grouping:
 #>     order: Asterales
 #>     family: Asteraceae
 #>     genus: Helianthus
 #>     species: Helianthus none
-#> 
+#>
 #> [[2]]
 #> <taxon>
 #>   binomial: Helianthus none
-#>   grouping: 
+#>   grouping:
 #>     order: Asterales
 #>     family: Asteraceae
 #>     genus: Helianthus
 #>     species: Helianthus none
-#> 
+#>
 #> [[3]]
 #> <taxon>
 #>   binomial: Quercus none
-#>   grouping: 
+#>   grouping:
 #>     order: Fagales
 #>     family: Fagaceae
 #>     genus: Quercus
 #>     species: Quercus none
-#> 
+#>
 #> [[4]]
 #> <taxon>
 #>   binomial: Poa none
-#>   grouping: 
+#>   grouping:
 #>     order: Poales
 #>     family: Poaceae
 #>     genus: Poa
 #>     species: Poa none
-#> 
+#>
 #> [[5]]
 #> <taxon>
 #>   binomial: Festuca none
-#>   grouping: 
+#>   grouping:
 #>     order: Poales
 #>     family: Poaceae
 #>     genus: Festuca
 #>     species: Festuca none
-#> 
+#>
 #> [[6]]
 #> <taxon>
 #>   binomial: Holodiscus none
-#>   grouping: 
+#>   grouping:
 #>     order: Poales
 #>     family: Poaceae
 #>     genus: Holodiscus
 #>     species: Holodiscus none
-#> 
+#>
 #> attr(,"class")
 #> [1] "taxa"
 ```

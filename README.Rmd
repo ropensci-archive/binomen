@@ -19,7 +19,7 @@ knitr::opts_chunk$set(
 
 It is designed as a companion to [taxize](https://github.com/ropensci/taxize), where you can get taxonomic data on taxonomic names from the web.
 
-The classes (S3):
+### classes (S3)
 
 * `taxon`
 * `taxonref`
@@ -27,7 +27,7 @@ The classes (S3):
 * `binomial`
 * `grouping` (i.e., classification - used different term to avoid conflict with classification in `taxize`)
 
-The verbs:
+### verbs
 
 * `gethier()` - get hierarchy from a `taxon` class
 * `scatter()` - make each row in taxonomic data.frame (`taxondf`) a separate `taxon` object within a single `taxa` object
