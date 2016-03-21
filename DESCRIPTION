@@ -22,5 +22,6 @@ Imports:
 Suggests:
     testthat,
     knitr,
-    taxize
+    taxize,
+    cover
 RoxygenNote: 5.0.1
