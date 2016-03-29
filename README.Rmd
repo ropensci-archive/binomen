@@ -43,6 +43,14 @@ It is designed as a companion to [taxize](https://github.com/ropensci/taxize), w
 
 ## Installation
 
+Stable CRAN version
+
+```{r eval=FALSE}
+install.packages("binomen")
+```
+
+Development GitHub version
+
 ```{r eval=FALSE}
 install.packages("devtools")
 devtools::install_github("ropensci/binomen")
