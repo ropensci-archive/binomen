@@ -19,7 +19,6 @@ make_taxon(genus = "none", epithet = "none", authority = "none", ...)
 Make taxon from class
 }
 \examples{
-\dontrun{
 (out <- make_taxon(genus="Poa"))
 (out <- make_taxon(genus="Poa", epithet="annua", authority="L."))
 (out <- make_taxon(genus="Poa", epithet="annua", authority="L.",
@@ -48,5 +47,4 @@ xx <- df \%>\% rowwise()
 xx \%>\% do(i = strain(make_taxon(.$species, genus = .$genus), . < family)) \%>\% .[[1]]
 xx \%>\% do(i = strain(make_taxon(.$species, genus = .$genus), . < genus)) \%>\% .[[1]]
 xx \%>\% do(i = strain(make_taxon(.$species, genus = .$genus), . < species)) \%>\% .[[1]]
-}
 }

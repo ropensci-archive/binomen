@@ -13,12 +13,10 @@ gethier(x)
 Get hierarchy as a data.frame
 }
 \examples{
-\dontrun{
 bin <- binomial("Poa", "annua", authority="L.")
 class <- grouping(kingdom=taxonref("kingdom", "Plantae"),
    species=taxonref("family", "Poaceae"))
 out <- taxon(bin, class)
 # get hierarchy as data.frame
 gethier(out)
-}
 }
