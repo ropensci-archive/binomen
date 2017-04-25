@@ -13,7 +13,7 @@ knitr::opts_chunk$set(
 [![Build Status](https://travis-ci.org/ropensci/binomen.svg?branch=master)](https://travis-ci.org/ropensci/binomen)
 [![codecov](https://codecov.io/gh/ropensci/binomen/branch/master/graph/badge.svg)](https://codecov.io/gh/ropensci/binomen)
 [![rstudio mirror downloads](https://cranlogs.r-pkg.org/badges/binomen?color=E664A4)](https://github.com/metacran/cranlogs.app)
-[![cran version](https://www.r-pkg.org/badges/version/binomen)]((https://cran.r-project.org/package=binomen)
+[![cran version](https://www.r-pkg.org/badges/version/binomen)](https://cran.r-project.org/package=binomen)
 
 `binomen` provides various taxonomic classes for defining a single taxon, multiple taxa, and a taxonomic data.frame
 
