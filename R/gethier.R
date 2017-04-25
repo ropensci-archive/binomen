@@ -3,8 +3,10 @@
 #' @export
 #' @param x An object of class taxon
 #' @examples \dontrun{
-#' (out <- taxon(genus="Poa", epithet="annua", authority="L.",
-#'              family='Poaceae', clazz='Poales', kingdom='Plantae', variety='annua'))
+#' bin <- binomial("Poa", "annua", authority="L.")
+#' class <- grouping(kingdom=taxonref("kingdom", "Plantae"),
+#'    species=taxonref("family", "Poaceae"))
+#' out <- taxon(bin, class)
 #' # get hierarchy as data.frame
 #' gethier(out)
 #' }

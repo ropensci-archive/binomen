@@ -30,6 +30,7 @@
 #'  species=c('annuus','petrus','kellog','annua','arundinaceae','fava'),
 #'  stringsAsFactors = FALSE)
 #'
+#' library(dplyr)
 #' xx <- df %>% rowwise()
 #' xx %>% do(i = strain(make_taxon(.$species, genus = .$genus), . < family)) %>% .[[1]]
 #' xx %>% do(i = strain(make_taxon(.$species, genus = .$genus), . < genus)) %>% .[[1]]
