@@ -7,4 +7,3 @@ Makefile
 ^\.travis\.yml$
 ^cran-comments\.md$
 ^README\.Rmd$
-NEWS\.md
