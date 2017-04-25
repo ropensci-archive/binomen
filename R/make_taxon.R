@@ -6,7 +6,7 @@
 #' @param epithet Specific epithet, e.g., sapiens (in Homo sapiens)
 #' @param authority Taxonomic authority
 #' @param ... Further args.
-#' @examples \dontrun{
+#' @examples
 #' (out <- make_taxon(genus="Poa"))
 #' (out <- make_taxon(genus="Poa", epithet="annua", authority="L."))
 #' (out <- make_taxon(genus="Poa", epithet="annua", authority="L.",
@@ -35,7 +35,6 @@
 #' xx %>% do(i = strain(make_taxon(.$species, genus = .$genus), . < family)) %>% .[[1]]
 #' xx %>% do(i = strain(make_taxon(.$species, genus = .$genus), . < genus)) %>% .[[1]]
 #' xx %>% do(i = strain(make_taxon(.$species, genus = .$genus), . < species)) %>% .[[1]]
-#' }
 
 make_taxon <- function(genus="none", epithet="none", authority="none", ...){
   if(genus=='none') stop("You must supply at least genus")

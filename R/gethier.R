@@ -2,14 +2,14 @@
 #'
 #' @export
 #' @param x An object of class taxon
-#' @examples \dontrun{
+#' @examples
 #' bin <- binomial("Poa", "annua", authority="L.")
 #' class <- grouping(kingdom=taxonref("kingdom", "Plantae"),
 #'    species=taxonref("family", "Poaceae"))
 #' out <- taxon(bin, class)
 #' # get hierarchy as data.frame
 #' gethier(out)
-#' }
+
 gethier <- function(x) {
   UseMethod("gethier")
 }
