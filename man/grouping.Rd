@@ -93,4 +93,3 @@ A class to represent a taxonomic classification
 grouping(kingdom=taxonref("kingdom", "Animalia"),
                species=taxonref("species", "Homo sapiens"))
 }
-

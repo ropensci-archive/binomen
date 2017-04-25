@@ -2,8 +2,8 @@
 % Please edit documentation in R/binomen-package.R
 \docType{package}
 \name{binomen-package}
-\alias{binomen}
 \alias{binomen-package}
+\alias{binomen}
 \title{Taxonomic class specification and parsing methods}
 \description{
 Taxonomic class specification and parsing methods
@@ -44,4 +44,3 @@ df2 \%>\% span(family, genus)
 Scott Chamberlain \email{myrmecocystus@gmail.com}
 }
 \keyword{package}
-

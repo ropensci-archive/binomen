@@ -28,4 +28,3 @@ splist <- c('Litsea bindoniana', 'Rubus ghanakantae', 'Desmanthus palmeri',
  'Hypnum gracile')
 lapply(splist, function(x) taxonref("species", name = x))
 }
-

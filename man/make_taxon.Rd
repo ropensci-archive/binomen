@@ -49,4 +49,3 @@ xx \%>\% do(i = strain(make_taxon(.$species, genus = .$genus), . < genus)) \%>\%
 xx \%>\% do(i = strain(make_taxon(.$species, genus = .$genus), . < species)) \%>\% .[[1]]
 }
 }
-

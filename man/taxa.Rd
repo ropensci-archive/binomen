@@ -18,4 +18,3 @@ class <- grouping(kingdom=taxonref("kingdom", "Plantae"),
    species=taxonref("family", "Poaceae"))
 taxa(taxon(bin, class), taxon(bin, class))
 }
-

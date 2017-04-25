@@ -22,4 +22,3 @@ df2 <- taxon_df(df)
 df2 \%>\% pick(family)
 df2 \%>\% pick(genus, tribe)
 }
-

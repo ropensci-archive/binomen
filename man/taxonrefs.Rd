@@ -17,4 +17,3 @@ a <- taxonref("genus", "Poa", 56, "http://scottchamberlain.info/")
 b <- taxonref("genus", "Quercus", 32343, "http://scottchamberlain.info/")
 taxonrefs(a, b)
 }
-

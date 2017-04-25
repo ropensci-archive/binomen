@@ -27,4 +27,3 @@ splist <- c('Litsea bindoniana', 'Rubus ghanakantae', 'Desmanthus palmeri',
  'Hypnum gracile')
 lapply(splist, binomial)
 }
-

@@ -40,4 +40,3 @@ df2 \%>\% span(family, genus)
 ## from taxa object
 df2 \%>\% scatter \%>\% span(family, species)
 }
-

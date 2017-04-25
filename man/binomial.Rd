@@ -25,4 +25,3 @@ A class to represent a taxonomic binomial
 binomial("Poa")
 binomial("Poa", "annua", authority="L.")
 }
-

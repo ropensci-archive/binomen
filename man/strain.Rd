@@ -38,4 +38,3 @@ out \%>\% strain(. < genus)
 out \%>\% strain(. > family)
 out \%>\% strain(. < family)
 }
-

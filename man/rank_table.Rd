@@ -16,4 +16,3 @@ data.frame with two columns and 34 rows. The two columns:
 Lookup-table for IDs of taxonomic ranks
 }
 \keyword{data}
-

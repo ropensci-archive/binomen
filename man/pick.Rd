@@ -46,4 +46,3 @@ df2 \%>\% scatter \%>\% pick(family)
 df2 \%>\% scatter \%>\% pick(family, species)
 df2 \%>\% scatter \%>\% pick(family, species, genus)
 }
-

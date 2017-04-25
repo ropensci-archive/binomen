@@ -23,4 +23,3 @@ df <- data.frame(rank=c('family','tribe','subtribe','genus','subgenus','species'
 apply(df, 1, make_taxon_fromclass)
 }
 }
-

@@ -3,7 +3,7 @@
 #' @importFrom methods is
 #' @importFrom stats setNames
 #' @import lazyeval
-#' @importFrom dplyr select_ rbind_all
+#' @importFrom dplyr select_ bind_rows
 #' @importFrom jsonlite toJSON
 #' @name binomen-package
 #' @aliases binomen

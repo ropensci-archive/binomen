@@ -18,4 +18,3 @@ The taxonomic classes:
  \item \strong{taxa} - List of taxon objects, via \code{\link{taxa}}
 }
 }
-

@@ -53,4 +53,3 @@ df2 \%>\% scatter \%>\% pop(family)
 df2 \%>\% scatter \%>\% pop(family, species)
 df2 \%>\% scatter \%>\% pop(family, species, genus)
 }
-

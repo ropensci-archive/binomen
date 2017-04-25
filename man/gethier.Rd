@@ -20,4 +20,3 @@ Get hierarchy as a data.frame
 gethier(out)
 }
 }
-
