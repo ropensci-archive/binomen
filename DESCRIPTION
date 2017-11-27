@@ -6,8 +6,10 @@ Description: Includes functions for working with taxonomic data,
     and non-standard evaluation ('NSE').
 Version: 0.1.2.9100
 License: MIT + file LICENSE
-Authors@R: person("Scott", "Chamberlain", role = c("aut", "cre"),
-    email = "myrmecocystus@gmail.com")
+Authors@R: person("Scott", "Chamberlain",
+           role = c("aut", "cre"),
+           email = "myrmecocystus@gmail.com",
+           comment = "orcid.org/0000-0003-1444-9135")
 URL: https://github.com/ropensci/binomen
 BugReports: https://github.com/ropensci/binomen/issues
 LazyLoad: yes
@@ -26,3 +28,6 @@ Suggests:
     taxize,
     covr
 RoxygenNote: 6.0.1
+X-schema.org-applicationCategory: Taxonomy
+X-schema.org-keywords: taoxnomy, taxonomic, tidy, parsing, biology, names
+X-schema.org-isPartOf: https://ropensci.org
