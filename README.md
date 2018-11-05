@@ -2,11 +2,14 @@ binomen
 =======
 
 
-
-[![Build Status](https://travis-ci.org/ropensci/binomen.svg?branch=master)](https://travis-ci.org/ropensci/binomen)
+<!-- [![Build Status](https://travis-ci.org/ropensci/binomen.svg?branch=master)](https://travis-ci.org/ropensci/binomen)
 [![codecov](https://codecov.io/gh/ropensci/binomen/branch/master/graph/badge.svg)](https://codecov.io/gh/ropensci/binomen)
 [![rstudio mirror downloads](https://cranlogs.r-pkg.org/badges/binomen?color=E664A4)](https://github.com/metacran/cranlogs.app)
-[![cran version](https://www.r-pkg.org/badges/version/binomen)](https://cran.r-project.org/package=binomen)
+[![cran version](https://www.r-pkg.org/badges/version/binomen)](https://cran.r-project.org/package=binomen) -->
+
+[![Project Status: Moved to https://github.com/ropensci/taxa – The project has been moved to a new location, and the version at that location should be considered authoritative.](https://www.repostatus.org/badges/latest/moved.svg)](https://www.repostatus.org/#moved) to <https://github.com/ropensci/taxa>
+
+__MOST FUNCTIONALITY OF THIS PACKAGE HAS MOVED TO THE [taxa][taxa] PACKAGE. THIS PACKAGE IS NOW ARCHIVED ON CRAN__
 
 `binomen` provides various taxonomic classes for defining a single taxon, multiple taxa, and a taxonomic data.frame
 
@@ -345,3 +348,5 @@ See [our issue tracker](https://github.com/ropensci/binomen/issues) to see what 
 * Please note that this project is released with a [Contributor Code of Conduct](CONDUCT.md). By participating in this project you agree to abide by its terms.
 
 [![ropensci](https://ropensci.org/public_images/github_footer.png)](https://ropensci.org)
+
+[taxa]: https://github.com/ropensci/taxa
